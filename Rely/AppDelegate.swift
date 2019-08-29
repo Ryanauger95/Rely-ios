@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Rely
 //
-//  Created by Ryan Auger on 8/29/19.
+//  Created by Ryan Auger on 6/28/19.
 //  Copyright © 2019 Rely. All rights reserved.
 //
 
@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        UIFont.overrideInitialize()
         return true
     }
 
