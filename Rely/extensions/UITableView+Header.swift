@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension UITableView {
     func addTableHeader(header: String) {

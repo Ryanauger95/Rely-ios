@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // Usage: insert view.fadeTransition right before changing content
 

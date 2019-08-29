@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 extension UITextView {
     func setPadding(top: CGFloat? = 0.0, left: CGFloat? = 0.0, bottom: CGFloat? = 0.0, right: CGFloat? = 0.0){

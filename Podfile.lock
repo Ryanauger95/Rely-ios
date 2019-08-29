@@ -1,0 +1,42 @@
+PODS:
+  - Alamofire (4.8.2)
+  - CheckBox (1.0.0)
+  - FlagPhoneNumber (0.7.6):
+    - FlagPhoneNumber/libPhoneNumberiOS (= 0.7.6)
+  - FlagPhoneNumber/libPhoneNumberiOS (0.7.6)
+  - Plaid (1.1.20)
+  - Socket.IO-Client-Swift (15.1.0):
+    - Starscream (~> 3.1)
+  - Starscream (3.1.0)
+  - SwiftyJSON (4.3.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.8.1)
+  - CheckBox
+  - FlagPhoneNumber
+  - Plaid
+  - Socket.IO-Client-Swift (~> 15.1.0)
+  - SwiftyJSON (~> 4.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CheckBox
+    - FlagPhoneNumber
+    - Plaid
+    - Socket.IO-Client-Swift
+    - Starscream
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CheckBox: c6f39d7dd72be096896205584b5943e4743a767b
+  FlagPhoneNumber: ee8d015e7e92b776a3598e6a36718196e0d0dcf5
+  Plaid: 88b271efec35273e3caac3903bb956ce1b4a6c22
+  Socket.IO-Client-Swift: 7cb44c0ffb86e158cee32d0642d30ec5fdcf8f61
+  Starscream: 08172b481e145289c4930cb567230fb55897cfa4
+  SwiftyJSON: 6faa0040f8b59dead0ee07436cbf76b73c08fd08
+
+PODFILE CHECKSUM: 0a8c1ea394db23c5101c32ac646962d18b57381e
+
+COCOAPODS: 1.6.1
