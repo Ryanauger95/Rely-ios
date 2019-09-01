@@ -12,10 +12,13 @@ class Request: RequestModel {
 
     // save request as deal
     func submit(completion: @escaping WebServiceResponse){
+        //Convert amounts to integers!
+        let amount: Int = Int(self.totalAmount * 100)
+        let reserve: Int = Int(self.reserveAmount * 100)
         apiPOST(endpoint: apiEndpoint.Txn, path: "", body:
             [
-                "amount": self.totalAmount!,
-                "reserve": self.reserveAmount!,
+                "amount": amount,
+                "reserve": reserve,
                 "description" : self.description!,
                 "payer": self.payer?.userId as Any,
                 "collector": self.collector?.userId as Any,

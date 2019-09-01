@@ -30,20 +30,35 @@ class ProfileViewController: ImagePickerViewController {
         let profileImg = self.user.profileImgBase64?.toUIImage()
         self.profilePicImageView.image =
             (profileImg != nil) ? profileImg : UIImage(named: "default_profile")
-        if  profileImg == nil {
-            if (user.profileImgUrl != nil){
-                user.fetchProfilePic(){ (image, imageBase64) in
-                    guard let image = image else {return}
-                    DispatchQueue.main.async {
-                        self.profilePicImageView.image = image
-                        self.user.profileImgBase64 = imageBase64
-                        updateDefaults(data: ["profile_img": imageBase64 as Any])
-                    }
+        
+        // If the user's profile image is nil but the url is not,
+        // fetch the profile pic
+        if  (profileImg == nil && user.profileImgUrl != nil){
+            user.fetchProfilePic(){ (image, imageBase64) in
+                guard let image = image else {return}
+                DispatchQueue.main.async {
+                    self.profilePicImageView.image = image
+                    self.user.profileImgBase64 = imageBase64
+                    updateDefaults(data: ["profile_img": imageBase64 as Any])
                 }
             }
         } else {
             self.profilePicImageView.image = self.user.profileImgBase64?.toUIImage()
         }
+        
+        
+        // Load the user's wallet balance
+        self.user.wallet() { (json, code, _) in
+            guard
+                code == 200,
+                let data = json?["data"] as? [String: Any],
+                let activeBalance = data["active_balance"] as? Int,
+                let pendingBalance = data["pending_balance"] as? Int
+                else {return}
+            self.accountBalanceLabel.text = String(format: "$%.2f", Double(activeBalance)/100)
+            
+        }
+        
 
         // Set tab bar icon
         self.tabBarItem.selectedImage =

@@ -71,8 +71,7 @@ class SubmitRequestViewController: UIViewController, UIPopoverPresentationContro
         
         // If the user is sending the money, then
         // 1. Check to see if user is registered with SILA
-        user.isRegisteredBank(){(json, code, error) in
-            guard let code = code else {return}
+        user.getWallet(){(json, code, error) in
             if code == 200 {
                 guard
                     let data = json?["data"] as? [String:Any],

@@ -16,14 +16,40 @@ enum cancelType : Int{
 
 class Txn : TxnModel{
 
-    // cancel deal
-    func cancel(completion: @escaping WebServiceResponse){
-        apiPOST(endpoint: apiEndpoint.Txn, path: "/cancel", body:
+    // Update Deal State
+    func updateState(newState: DEAL_STATE, completion: @escaping WebServiceResponse){
+        let path = String(format: "/%d", self.dealId)
+        apiPUT(endpoint: apiEndpoint.Txn, path: path, body:
             [
-                "deal_id" : self.dealId
+                "state_change": true as Any,
+                "new_state" : newState.rawValue as Any
             ], completion: completion)
     }
-    
-    
+
+    func amountStr() -> String {
+        return String(format: "%.2f", Double(self.reserve)/100)
+    }
+    func reserveStr() -> String {
+        return String(format:"%.2f", Double(self.reserve)/100)
+    }
+    func isActive() -> Bool {
+        switch (self.dealState) {
+        case .DISPUTE:
+            return true
+        case .TIMEOUT:
+            return false
+        case .CANCELLED:
+            return false
+        case .PENDING:
+            return true
+        case .PROGRESS:
+            return true
+        case .REVIEW:
+            return true
+        case .COMPLETE:
+            return false
+
+        }
+    }
 }
 

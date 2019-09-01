@@ -18,7 +18,7 @@
         <!--Timeline View Controller-->
         <scene sceneID="XZ4-zu-xHz">
             <objects>
-                <viewController id="XN8-VA-12m" customClass="TimelineViewController" customModule="reli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XN8-VA-12m" customClass="TimelineViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TGU-xI-sbb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,14 +28,14 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" cocoaTouchSystemColor="lightTextColor"/>
                                 <prototypes>
-                                    <tableViewCell opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" rowHeight="121" id="mOl-ef-xqI" customClass="TimelineTableViewCell" customModule="reli" customModuleProvider="target">
+                                    <tableViewCell opaque="NO" clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell4" rowHeight="121" id="mOl-ef-xqI" customClass="TimelineTableViewCell" customModule="Rely" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="121"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mOl-ef-xqI" id="RzA-2E-quJ" customClass="ProfileList1TableViewCell" customModule="reli" customModuleProvider="target">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mOl-ef-xqI" id="RzA-2E-quJ" customClass="ProfileList1TableViewCell" customModule="Rely" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="120.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyr-Yk-sdQ" customClass="View" customModule="reli" customModuleProvider="target">
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oyr-Yk-sdQ" customClass="View" customModule="Rely" customModuleProvider="target">
                                                     <rect key="frame" x="15" y="4" width="384" height="100"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-$884.21" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="7Nc-PK-U4i">
@@ -172,12 +172,12 @@
         <!--Transaction Detail View Controller-->
         <scene sceneID="aIA-D6-nTK">
             <objects>
-                <viewController storyboardIdentifier="TransactionDetailViewController" id="h2L-Ns-w5G" customClass="TransactionDetailViewController" customModule="reli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TransactionDetailViewController" id="h2L-Ns-w5G" customClass="TransactionDetailViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eGf-kY-G4l">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvX-ka-eMa" customClass="View" customModule="reli" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvX-ka-eMa" customClass="View" customModule="Rely" customModuleProvider="target">
                                 <rect key="frame" x="20" y="59" width="374" height="224"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="name of the user " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Rql-bg-sNM">
@@ -214,18 +214,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG7-5e-UcQ">
-                                        <rect key="frame" x="45" y="161.5" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="UO7-rD-iGd"/>
-                                            <constraint firstAttribute="width" constant="30" id="kqO-4G-br9"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        <state key="normal" image="redcancel"/>
-                                        <connections>
-                                            <action selector="cancelButtonPressed:" destination="h2L-Ns-w5G" eventType="touchUpInside" id="L40-GT-Zo4"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lVq-uG-Pg1">
                                         <rect key="frame" x="172" y="161.5" width="30" height="30"/>
                                         <constraints>
@@ -266,8 +254,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Days Left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9oJ-O1-b5o">
-                                        <rect key="frame" x="15" y="88" width="86.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Waiting for accept" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="9oJ-O1-b5o">
+                                        <rect key="frame" x="15" y="93" width="139.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="1" green="0.57637232540000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -276,7 +264,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$874.23" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thz-Pp-dYq">
-                                        <rect key="frame" x="291" y="34" width="74.5" height="20.5"/>
+                                        <rect key="frame" x="290.5" y="34" width="74.5" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -284,6 +272,15 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         </variation>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG7-5e-UcQ">
+                                        <rect key="frame" x="45" y="161" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="UO7-rD-iGd"/>
+                                            <constraint firstAttribute="width" constant="30" id="kqO-4G-br9"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" image="redcancel"/>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -291,11 +288,11 @@
                                     <constraint firstItem="Rql-bg-sNM" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="71" id="Agm-J9-nFg"/>
                                     <constraint firstItem="uOv-Eu-2Wv" firstAttribute="top" secondItem="hvX-ka-eMa" secondAttribute="top" constant="18" id="BwZ-Qo-PY6"/>
                                     <constraint firstAttribute="trailing" secondItem="aj8-Ji-uCS" secondAttribute="trailing" constant="33" id="EGz-Ub-gfD"/>
-                                    <constraint firstItem="9oJ-O1-b5o" firstAttribute="top" secondItem="uOv-Eu-2Wv" secondAttribute="bottom" constant="15" id="HDq-nR-5O7"/>
+                                    <constraint firstItem="9oJ-O1-b5o" firstAttribute="top" secondItem="uOv-Eu-2Wv" secondAttribute="bottom" constant="20" id="HDq-nR-5O7"/>
                                     <constraint firstItem="9oJ-O1-b5o" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="15" id="I1R-xq-WL4"/>
                                     <constraint firstAttribute="trailing" secondItem="AbD-mz-v2P" secondAttribute="trailing" constant="15" id="I21-5W-eDh"/>
                                     <constraint firstItem="aj8-Ji-uCS" firstAttribute="top" secondItem="e3l-M6-fc4" secondAttribute="bottom" constant="5.5" id="RT7-Vf-kLN"/>
-                                    <constraint firstItem="AbD-mz-v2P" firstAttribute="top" secondItem="9oJ-O1-b5o" secondAttribute="bottom" constant="25.5" id="Shx-hm-px9"/>
+                                    <constraint firstItem="AbD-mz-v2P" firstAttribute="top" secondItem="9oJ-O1-b5o" secondAttribute="bottom" constant="20.5" id="Shx-hm-px9"/>
                                     <constraint firstAttribute="trailing" secondItem="e3l-M6-fc4" secondAttribute="trailing" constant="48" id="ZlY-qV-kKL"/>
                                     <constraint firstItem="e3l-M6-fc4" firstAttribute="top" secondItem="AbD-mz-v2P" secondAttribute="bottom" constant="25.5" id="azE-K5-GLg"/>
                                     <constraint firstItem="AbD-mz-v2P" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="15" id="bDF-LC-cvM"/>
@@ -411,13 +408,15 @@
                     </view>
                     <connections>
                         <outlet property="amountLabel" destination="Thz-Pp-dYq" id="hEl-bn-Whb"/>
+                        <outlet property="cancelButton" destination="bG7-5e-UcQ" id="ly1-YR-oZa"/>
+                        <outlet property="cancelLabel" destination="sKw-z6-Mq4" id="E7E-Yw-99L"/>
                         <outlet property="checkButton" destination="e3l-M6-fc4" id="ii0-DR-23O"/>
                         <outlet property="checkLabel" destination="aj8-Ji-uCS" id="B1C-Pa-PPd"/>
-                        <outlet property="daysRemainingLabel" destination="9oJ-O1-b5o" id="hbc-rF-lz8"/>
                         <outlet property="descriptionTextView" destination="l5t-B5-gKE" id="YUg-tH-RF1"/>
                         <outlet property="nameLabel" destination="Rql-bg-sNM" id="ovl-0H-gHB"/>
                         <outlet property="profilePic" destination="uOv-Eu-2Wv" id="cIH-Q7-H29"/>
                         <outlet property="reserveLabel" destination="OZU-wP-QZi" id="w0R-mJ-IDw"/>
+                        <outlet property="stateLbl" destination="9oJ-O1-b5o" id="8Lg-zG-oVn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b2C-b8-Tf1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -427,7 +426,7 @@
         <!--Cancel Deal View Controller-->
         <scene sceneID="eWG-6K-wrB">
             <objects>
-                <viewController storyboardIdentifier="CancelDealViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="4Se-zP-MI5" customClass="CancelDealViewController" customModule="reli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CancelDealViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="4Se-zP-MI5" customClass="CancelDealViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1WN-ME-kOS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,11 +438,11 @@
                                         <rect key="frame" x="0.0" y="113" width="364" height="169"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Rb-XL-wuC">
-                                                <rect key="frame" x="0.0" y="9" width="364" height="17"/>
+                                                <rect key="frame" x="0.0" y="9" width="364" height="24"/>
                                                 <string key="text">Reserve
 
 </string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" white="0.0" alpha="0.51455479449999997" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
@@ -451,17 +450,17 @@
                                                 </variation>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCg-sg-KMY">
-                                                <rect key="frame" x="0.0" y="43" width="364" height="17"/>
+                                                <rect key="frame" x="0.0" y="50" width="364" height="24"/>
                                                 <string key="text">$218.56
 </string>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <nil key="highlightedColor"/>
                                                 <variation key="heightClass=regular-widthClass=regular">
                                                     <fontDescription key="fontDescription" name="OpenSans-Semibold" family="Open Sans" pointSize="18"/>
                                                 </variation>
                                             </label>
                                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zah-Nk-Rnm">
-                                                <rect key="frame" x="8" y="68" width="348" height="93"/>
+                                                <rect key="frame" x="8" y="82" width="348" height="93"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="93" id="pR3-IT-16i"/>
                                                 </constraints>
@@ -569,7 +568,7 @@ to cancel ?</string>
         <!--Contact View Controller-->
         <scene sceneID="UWv-Kg-5Z7">
             <objects>
-                <viewController storyboardIdentifier="ContactViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="DS7-Ge-mcl" customClass="ContactViewController" customModule="reli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContactViewController" modalTransitionStyle="crossDissolve" modalPresentationStyle="overCurrentContext" id="DS7-Ge-mcl" customClass="ContactViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ksu-rC-VL1">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -29,6 +29,7 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
     // if KYC is required, then both bank and KYC are required
     // if KYC is false we just need the bank linked
     var kycRequired: Bool! = true
+    var onDismissCb: KYCResultCb? = nil
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,7 +78,7 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
         user.linkBankToWallet(publicToken: publicToken, completion: { (json, code, error) in
             self.removeActivity()
             if (code == 200) {
-                self.dismiss(animated: true)
+                self.dismissAndRunCompletion(success: true)
             } else {
                 self.bankLinkError()
             }
@@ -85,7 +86,14 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
     }
     func bankLinkError(){
         self.alert(title: "Error linking bank", message: "") {
-            self.dismiss(animated: true)
+            self.dismissAndRunCompletion(success: false)
+        }
+    }
+    
+    func dismissAndRunCompletion(success: Bool) {
+        self.dismiss(animated: true) {
+            guard let cb = self.onDismissCb else {return}
+            cb(success)
         }
     }
     

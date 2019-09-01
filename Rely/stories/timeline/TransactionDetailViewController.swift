@@ -12,7 +12,7 @@ import UIKit
 class TransactionDetailViewController: UIViewController {
 
     @IBOutlet weak var reserveLabel: UILabel!
-    @IBOutlet weak var daysRemainingLabel: UILabel!
+    @IBOutlet weak var stateLbl: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
     @IBOutlet weak var profilePic: UIImageView!
@@ -21,11 +21,15 @@ class TransactionDetailViewController: UIViewController {
     @IBOutlet weak var checkLabel: UILabel!
     @IBOutlet weak var checkButton: UIButton!
     
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var cancelLabel: UILabel!
+    
     var deal : Txn!
     var user : User!
     var peer : User!
     
     var userRole: DEAL_ROLE!
+    var isOriginator: Bool!
     
     
     /*
@@ -36,6 +40,7 @@ class TransactionDetailViewController: UIViewController {
        
         //Determine user role & status
         self.userRole = (self.user.userId == self.deal.payer.userId) ? .PAYER : .COLLECTOR
+        self.isOriginator = (self.user.userId == self.deal.originator)
 
         // Configure UI
         self.styleDarkNav()
@@ -46,9 +51,6 @@ class TransactionDetailViewController: UIViewController {
         // Set Static Fields
         self.reserveLabel.text =
             String(format: "$%d", deal.reserve)
-//        self.daysRemainingLabel.text = String(format: "%d days left", daysRemaining(dateStart: Date(), dateEnd: deal.endDate)!)
-//        self.daysRemainingLabel.text = String(format: "%d days left", deal.period)
-        self.daysRemainingLabel.text = "STATE"
         self.amountLabel.text = String(format: "$%d", deal.amount)
         self.nameLabel.text = self.peer.firstName! + " " + self.peer.lastName!
         self.profilePic.image = self.peer.profileImgBase64?.toUIImage()
@@ -67,26 +69,35 @@ class TransactionDetailViewController: UIViewController {
             //      we just change the status of the request and notify parties
             // If the collector initiated, then the payer will be accepting
             //      the job, so we must perform KYC as well
-            if self.deal.originator == self.user.userId {
+            
+            self.cancelButton.addTarget(self, action: #selector(self.cancelButtonPressed), for: .touchUpInside)
+            if (self.isOriginator) {
+                self.stateLbl.text = String(format: "Waiting for \(self.peer.firstName!) to accept")
                 self.checkLabel.text = "Waiting"
                 self.checkButton.imageView?.image = UIImage(named: "check-gray")
             } else {
+                self.stateLbl.text = String(format: "Waiting for you to accept", self.peer.firstName!)
                 self.checkLabel.text = "Accept"
                 self.checkButton.imageView?.image = UIImage(named: "check-green")
-                if self.userRole == .PAYER {
                 self.checkButton.addTarget(self, action: #selector(self.acceptRequest), for: .touchUpInside)
-                } else {
-                    self.checkButton.addTarget(self, action: #selector(self.acceptRequest), for: .touchUpInside)
-                }
+                
             }
             break
         case .PROGRESS:
             // If in progress, the collector can mark as complete
+            if (self.deal.fundState != FUND_STATE.FEE_COMPLETE){
+                self.stateLbl.text = String(format: "Waiting for funds to transfer into account", self.peer.firstName!)
+                self.checkButton.imageView?.image = UIImage(named: "check-gray")
+                break;
+            }
+            self.cancelButton.addTarget(self, action: #selector(self.cancelButtonPressed), for: .touchUpInside)
             if userRole == .COLLECTOR {
+                self.stateLbl.text = String(format: "Waiting for you to mark the job complete", self.peer.firstName!)
                 self.checkLabel.text = "Complete"
                 self.checkButton.imageView?.image = UIImage(named: "check-green")
                 self.checkButton.addTarget(self, action: #selector(self.markComplete), for: .touchUpInside)
             } else {
+                self.stateLbl.text = String(format: "Waiting for \(self.peer.firstName!) to mark complete", self.peer.firstName!)
                 self.checkLabel.text = "Approve"
                 self.checkButton.imageView?.image = UIImage(named: "check-gray")
             }
@@ -94,9 +105,14 @@ class TransactionDetailViewController: UIViewController {
         case .REVIEW:
             // If under review, the payer can mark as approved
             if userRole == .PAYER {
+                self.stateLbl.text = String(format: "Waiting for you to approve the job", self.peer.firstName!)
                 self.checkLabel.text = "Approve"
                 self.checkButton.imageView?.image = UIImage(named: "check-green")
+                self.checkButton.addTarget(self, action: #selector(self.approveCompletion), for: .touchUpInside)
+                self.cancelLabel.text = "Dispute"
+                
             } else {
+                self.stateLbl.text = String(format: "Waiting for \(self.peer.firstName!) to approve the job", self.peer.firstName!)
                 self.checkLabel.text = "Complete"
                 self.checkButton.imageView?.image = UIImage(named: "check-gray")
             }
@@ -116,41 +132,60 @@ class TransactionDetailViewController: UIViewController {
     
     @objc func acceptRequest() {
        NSLog("Accepting Request!")
-        if self.userRole == .PAYER {
-            // 1. GET to see if I have an account
-            self.user.wallet(completion: {(json, code, err) in
-                guard let code = code else { return }
-                if code == 200 {
-                    // PUT Mark the deal as in progress
-                } else {
-                    // Register for KYC. At end of KYC, PUT mark the deal
-                    // as in progress
-                    self.presentKYC()
+        performKYCIfNeeded(vc: self, user: self.user){ (didComplete) in
+            if (didComplete == true) {
+                self.deal.updateState(newState: DEAL_STATE.PROGRESS) {(json, code, error) in
+                    if code == 200 {
+                        self.alert(title: "Successfully accepted request!", message: "") { () in
+                            self.navigationController?.popViewController(animated:true)
+                        }
+                    } else {
+                        self.alert(title: "Failed to link account!", message: "") { () in
+                            self.navigationController?.popViewController(animated:true)
+                        }
+                    }
                 }
-                print("Retreived Wallet")
-            })
-        } else {
-            // PUT Mark the deal as in progress
+
+            } else {
+                self.alert(title: "Failed to link account!", message: "", completion: nil)
+            }
         }
     }
     
-    func presentKYC() {
-        let storyboard = UIStoryboard(name: "KYC", bundle: nil)
-        let nextVC = storyboard.instantiateViewController(withIdentifier: "KYCViewController")
-        nextVC.modalTransitionStyle = .crossDissolve
-        nextVC.modalPresentationStyle = .overCurrentContext
-        self.present(nextVC, animated: true, completion: nil)
-    }
 
     @objc func markComplete() {
        NSLog("Marking Complete")
+        performKYCIfNeeded(vc: self, user: self.user, completion: {(didComplete) in
+            if (didComplete == true) {
+                self.deal.updateState(newState: DEAL_STATE.REVIEW, completion: {(_, code, _) in
+                    if (code == 200) {
+                        self.alert(title: "Successfully marked job as complete!", message: "The job is now under review, and pending an acceptance by \(self.peer.firstName!)") { () in
+                            self.navigationController?.popViewController(animated:true)
+                        }
+                    } else {
+                       self.alert(title: "Unable to mark job as complete!", message: "", completion: nil)
+                    }
+                })
+            } else {
+                self.alert(title: "Failed to link account!", message: "", completion: nil)
+            }
+        })
     }
     
     @objc func approveCompletion() {
-       NSLog("Approving Completion")
+        NSLog("Approving Completion")
+        self.deal.updateState(newState: DEAL_STATE.COMPLETE, completion: {(_, code, _) in
+            if (code == 200) {
+                self.alert(title: "Successfully marked job as approved!", message: "The job is complete, money will be available for transfer soon") { () in
+                    self.navigationController?.popViewController(animated:true)
+                }
+            } else {
+                self.alert(title: "Unable to mark job as approved", message: "", completion: nil)
+            }
+        })
     }
     
-    @IBAction func cancelButtonPressed(_ sender: Any) {
+    @objc func cancelButtonPressed() {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CancelDealViewController") as! CancelDealViewController
         nextVC.modalPresentationStyle = .overCurrentContext
         nextVC.user = self.user

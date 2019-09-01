@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C5C4C58231C13C0005DD8D8 /* KYCAndBankLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C4C57231C13C0005DD8D8 /* KYCAndBankLink.swift */; };
 		0CC4D5FE2318129000497D21 /* Rely.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D5FC2318129000497D21 /* Rely.xcdatamodeld */; };
 		0CC4D60E2318129100497D21 /* RelyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D60D2318129100497D21 /* RelyTests.swift */; };
 		0CC4D6192318129100497D21 /* RelyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D6182318129100497D21 /* RelyUITests.swift */; };
@@ -131,6 +132,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C5C4C57231C13C0005DD8D8 /* KYCAndBankLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCAndBankLink.swift; sourceTree = "<group>"; };
 		0CC4D5F22318129000497D21 /* Rely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC4D5FD2318129000497D21 /* Rely.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rely.xcdatamodel; sourceTree = "<group>"; };
 		0CC4D6042318129100497D21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -351,6 +353,7 @@
 				0CC4D632231812C700497D21 /* Button.swift */,
 				0CC4D633231812C700497D21 /* DLRadioButton.h */,
 				0CC4D634231812C700497D21 /* RoundImageView.swift */,
+				0C5C4C57231C13C0005DD8D8 /* KYCAndBankLink.swift */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -519,11 +522,11 @@
 		0CC4D6C9231812EE00497D21 /* timeline */ = {
 			isa = PBXGroup;
 			children = (
+				0CC4D6CE231812EE00497D21 /* Timeline.storyboard */,
+				0CC4D6CD231812EE00497D21 /* ReserveViewController.xib */,
+				0CC4D6CC231812EE00497D21 /* TimelineViewController.swift */,
 				0CC4D6CA231812EE00497D21 /* TimelineTableViewCell.swift */,
 				0CC4D6CB231812EE00497D21 /* TransactionDetailViewController.swift */,
-				0CC4D6CC231812EE00497D21 /* TimelineViewController.swift */,
-				0CC4D6CD231812EE00497D21 /* ReserveViewController.xib */,
-				0CC4D6CE231812EE00497D21 /* Timeline.storyboard */,
 				0CC4D6CF231812EE00497D21 /* ReserveViewController.swift */,
 				0CC4D6D0231812EE00497D21 /* ContactViewController.swift */,
 				0CC4D6D1231812EE00497D21 /* CancelDealViewController.swift */,
@@ -869,6 +872,7 @@
 				0CC4D6ED231812EE00497D21 /* RequestTableViewCell.swift in Sources */,
 				0CC4D6E9231812EE00497D21 /* ProfileViewController.swift in Sources */,
 				0CC4D67B231812DF00497D21 /* UIViewController+Background.swift in Sources */,
+				0C5C4C58231C13C0005DD8D8 /* KYCAndBankLink.swift in Sources */,
 				0CC4D6FF231812EE00497D21 /* WelcomeViewController.swift in Sources */,
 				0CC4D6A0231812E500497D21 /* BankModel.swift in Sources */,
 				0CC4D67E231812DF00497D21 /* UIViewController+NavBar.swift in Sources */,

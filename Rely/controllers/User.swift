@@ -177,11 +177,12 @@ class User: UserModel{
     ////////////////////////////////////
     /// User Wallet
     ////////////////////////////////////
-    func isRegisteredBank(completion: @escaping WebServiceResponse) {
+    // GET the user's wallet
+    func getWallet(completion: @escaping WebServiceResponse) {
         let path = String(format: "/%d/wallet", self.userId)
         apiGET(endpoint: .User, path: path, completion: completion)
     }
-    
+
     func registerWallet(
         address1 : String,
         address2 : String,

@@ -21,6 +21,7 @@ class CancelDealViewController: UIViewController, UIPickerViewDelegate, UIPicker
     
     let FORFEIT_RESERVE = "Forfeit Reserve"
     let KEEP_RESERVE = "Keep Reserve"
+    let RETURN_RESERVE = "Reserve will be returned"
     var pickerOptions : [String] = []
 
     override func viewDidLoad() {
@@ -33,7 +34,7 @@ class CancelDealViewController: UIViewController, UIPickerViewDelegate, UIPicker
             self.dismiss(animated: true, completion: nil)
             return
         }
-        self.reserveLbl.text = String(format: "$%.2lf", arguments: [deal.reserve])
+        self.reserveLbl.text = self.deal.reserveStr()
         
         
        //
@@ -42,23 +43,23 @@ class CancelDealViewController: UIViewController, UIPickerViewDelegate, UIPicker
         
         case .PENDING:
             // Before the deal is accepted by the other party,
-            // the reserve is kept by the sender
+            // the reserve is always kept by the payer -- it
+            // hasn't been moved into holding
             self.cancelButton.isEnabled = true
-            if userRole == .PAYER {
-                self.pickerOptions.append(KEEP_RESERVE)
-            } else {
-                self.pickerOptions.append(FORFEIT_RESERVE)
-            }
+            self.pickerOptions.append(RETURN_RESERVE)
             self.cancelType = .returnReserve
-            self.cancelButton.addTarget(self, action: #selector(self.cancelPending), for: .touchUpInside)
+            self.cancelButton.addTarget(self, action: #selector(self.cancel), for: .touchUpInside)
             break
         case .PROGRESS:
             // Once in progress, either party can elect to cancel the deal
             // and either keep or forfeit the reserve
             self.cancelButton.isEnabled = true
-            self.pickerOptions.append(KEEP_RESERVE)
-            self.pickerOptions.append(FORFEIT_RESERVE)
-            self.cancelButton.addTarget(self, action: #selector(self.cancelProgress), for: .touchUpInside)
+            if (userRole == .PAYER) {
+                self.pickerOptions.append(FORFEIT_RESERVE)
+            } else {
+                self.pickerOptions.append(RETURN_RESERVE)
+            }
+            self.cancelButton.addTarget(self, action: #selector(self.cancel), for: .touchUpInside)
             break
         case .REVIEW:
             // Cannot cancel a deal once it goes to review
@@ -83,16 +84,13 @@ class CancelDealViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.dismiss(animated: true, completion: nil)
     }
     
-    @objc func cancelPending() {
+    @objc func cancel() {
         // Cancel the job
-        self.deal.cancel(){(json, code, err) in
-            guard
-                let json = json,
-                json["status"] as? String == "success" else {
-                    self.alert(title: "Failed", message: "Couldn't cancel deal", completion: {() in
-                        self.dismiss(animated: true, completion: nil)
-                    })
-                    return
+        self.deal.updateState(newState: DEAL_STATE.CANCELLED){(json, code, err) in
+            if (code != 200) {
+                self.alert(title: "Failed", message: "Couldn't cancel deal", completion: {() in
+                    self.dismiss(animated: true, completion: nil)
+                })
             }
             self.alert(title: "Success", message: "Canceled Deal", completion: {() in
                 self.dismiss(animated: true, completion: nil)

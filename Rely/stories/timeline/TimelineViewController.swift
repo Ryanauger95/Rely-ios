@@ -10,15 +10,21 @@ import Foundation
 import UIKit
 import SocketIO
 
+enum SECTION: Int{
+    case ACTIVE_SECTION;
+    case INACTIVE_SECTION;
+}
+
 class TimelineViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
-    
+
     @IBOutlet weak var searchBarTxt: UITextField!
     @IBOutlet weak var table: UITableView!
 
     var search = Search()
     var user : User!
     
-    var requestDealList : [Txn] = []
+    var activeTxns : [Txn] = []
+    var inactiveTxns: [Txn] = []
     var searchConnected : Bool = false
     var hasAppearedOnce = false
     
@@ -95,24 +101,21 @@ class TimelineViewController: UIViewController,UITableViewDataSource, UITableVie
         }
         self.search.start_deal_search(userID: self.user!.userId, term: self.searchBarTxt.text ?? "")
     }
-
-    func loadTableDealSearchResult(data: [Any], error: SocketAckEmitter) -> () {
-        guard let json = data as?  [String: Any],
-            let userList = json["deals"] as? [[String: Any]] else {
-            if self.searchBarTxt.text == "" {
-                self.loadData(completion: nil)
-            }
-            return
+    
+    func addTxnToTable(txn: Txn){
+        if txn.isActive() {
+            self.activeTxns.append(txn)
+        }else {
+            self.inactiveTxns.append(txn)
         }
-
-        self.requestDealList.removeAll()
-        for data in userList {
-            guard let deal = Txn(data: data) else { continue }
-            self.requestDealList.append(deal)
-        }
-        self.table.reloadData()
     }
     
+    func clearTable(){
+        self.table.reloadData()
+        self.activeTxns.removeAll()
+        self.inactiveTxns.removeAll()
+    }
+
     //Load Directly from API
     func loadData(completion: (()->Void)?){
         user.getActiveTxns(){ (json, code, error) in
@@ -123,30 +126,82 @@ class TimelineViewController: UIViewController,UITableViewDataSource, UITableVie
                     completion?()
                     return
             }
-            self.requestDealList.removeAll()
+            self.clearTable()
             for data in userList {
-                guard let deal = Txn(data: data) else {continue}
-                self.requestDealList.append(deal)
+                guard let txn = Txn(data: data) else {continue}
+                self.addTxnToTable(txn: txn)
             }
             self.table.reloadData()
             completion?()
         }
     }
+    
+    func loadTableDealSearchResult(data: [Any], error: SocketAckEmitter) -> () {
+        guard let json = data as?  [String: Any],
+            let userList = json["deals"] as? [[String: Any]] else {
+                if self.searchBarTxt.text == "" {
+                    self.loadData(completion: nil)
+                }
+                return
+        }
+        
+        self.clearTable()
+        for data in userList {
+            guard let txn = Txn(data: data) else { continue }
+            self.addTxnToTable(txn: txn)
+            self.table.reloadData()
+        }
+    }
+    
     //////////////////////////////////////////////////
     // TableView setup
     //////////////////////////////////////////////////
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        table = nil
-        table = tableView
-        return requestDealList.count
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
     }
-    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (section == SECTION.ACTIVE_SECTION.rawValue) {
+            return "Active Transactions"
+        } else if (section == SECTION.INACTIVE_SECTION.rawValue) {
+            return "Inactive Transactions"
+        } else {
+            return ""
+        }
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if (section == SECTION.ACTIVE_SECTION.rawValue) {
+            return activeTxns.count
+        } else if (section == SECTION.INACTIVE_SECTION.rawValue) {
+            return inactiveTxns.count
+        } else {
+            return 0
+        }
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        
+        let headerLabel = UILabel(frame: CGRect(x: 30, y: 0, width:
+            tableView.bounds.size.width, height: tableView.bounds.size.height))
+        headerLabel.font = UIFont(name: "Helvetica", size: 20)
+        headerLabel.textColor = UIColor.black
+        if (section == SECTION.ACTIVE_SECTION.rawValue){
+            headerLabel.text = "Active"
+        } else if (section == SECTION.INACTIVE_SECTION.rawValue) {
+            headerLabel.text = "Inactive"
+        }
+        headerLabel.sizeToFit()
+        headerView.addSubview(headerLabel)
+        return headerView
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell4",for : indexPath) as! TimelineTableViewCell
         cell.selectionStyle = .none
         
-        let deal = requestDealList[indexPath.row]
+        let deal = (indexPath.section == 0) ? activeTxns[indexPath.row] : inactiveTxns[indexPath.row]
         let userRole: DEAL_ROLE = (user.userId == deal.payer.userId) ? .PAYER : .COLLECTOR
         let dealPeer = (user.userId == deal.payer.userId) ? deal.collector : deal.payer
         guard
@@ -182,7 +237,7 @@ class TimelineViewController: UIViewController,UITableViewDataSource, UITableVie
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let deal = requestDealList[indexPath.row]
+        let deal = activeTxns[indexPath.row]
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "TransactionDetailViewController") as! TransactionDetailViewController
         nextVC.user = self.user
         nextVC.deal = deal
