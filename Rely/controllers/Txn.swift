@@ -53,3 +53,9 @@ class Txn : TxnModel{
     }
 }
 
+func minorToMajorCurrencyStr(minor: Int) -> String{
+    return String(format: "%.2f", minorToMajorCurrency(minor: minor))
+}
+func minorToMajorCurrency(minor: Int) -> Double{
+    return Double(minor)/100
+}

@@ -204,11 +204,68 @@ class User: UserModel{
             ], completion: completion)
     }
     
-    func linkBankToWallet(publicToken: String, completion: @escaping WebServiceResponse){
+    class Account {
+        var type: String!
+        var mask: String!
+        var institution: String!
+        var name: String!
+        var isDefault: Bool?
+        init(institution: String, mask: String, type: String, name: String? = nil, isDefault: Bool? = nil){
+            self.mask = mask
+            self.institution = institution
+            self.type = type
+            if (name == nil){
+                self.name = institution + " " + type + " " + mask
+            } else {
+                self.name = name
+            }
+            
+            self.isDefault = isDefault
+        }
+    }
+    
+    func linkBankToWallet(account: Account, publicToken: String, completion: @escaping WebServiceResponse){
         let path = String(format: "/%d/wallet/accounts", self.userId)
         apiPOST(endpoint: .User, path: path, body:
-            ["public_token": publicToken as Any]
+            [
+                "name": account.name as Any,
+                "mask": account.mask as Any,
+                "institution": account.institution as Any,
+                "type": account.type as Any,
+                "public_token": publicToken as Any
+            ]
             , completion: completion)
+        
+    }
+
+    func getAccounts(completion: @escaping ([Account]?)->Void ){
+        let path = String(format: "/%d/wallet/accounts", self.userId)
+        apiGET(endpoint: .User, path: path){ (json, code, err) in
+            guard
+                code == 200,
+                let data = json?["data"] as? [String:Any],
+                let accounts = data["accounts"] as? [[String:Any]]
+                else {
+                    completion(nil)
+                    return
+            }
+            var accountArr: [Account] = []
+            for account in accounts {
+                guard
+                    let name = account["name"] as? String,
+                    let mask = account["mask"] as? String,
+                    let type = account["type"] as? String,
+                    let institution = account["institution"] as? String,
+                    let isDefault = account["is_default"] as? Bool
+                    else {
+                        continue
+                }
+                let newAccount = Account(institution: institution, mask: mask, type: type, name: name, isDefault: isDefault)
+                accountArr.append(newAccount)
+            }
+            completion(accountArr)
+        }
+        
         
     }
 }

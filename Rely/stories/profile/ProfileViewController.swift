@@ -42,9 +42,7 @@ class ProfileViewController: ImagePickerViewController {
                     updateDefaults(data: ["profile_img": imageBase64 as Any])
                 }
             }
-        } else {
-            self.profilePicImageView.image = self.user.profileImgBase64?.toUIImage()
-        }
+        } 
         
         
         // Load the user's wallet balance

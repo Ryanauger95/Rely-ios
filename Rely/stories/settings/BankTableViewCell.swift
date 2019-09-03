@@ -12,7 +12,7 @@ class BankTableViewCell: UITableViewCell {
 
     
     @IBOutlet weak var accountName: UILabel!
-    @IBOutlet weak var accountMask: UILabel!
+    @IBOutlet weak var accountView: View!
     
     override func awakeFromNib() {
         super.awakeFromNib()

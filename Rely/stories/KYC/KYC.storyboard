@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="jbZ-G0-SnR">
             <objects>
-                <viewController storyboardIdentifier="KYCViewController" id="bKS-mR-MKC" customClass="KYCViewController" customModule="reli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KYCViewController" id="bKS-mR-MKC" customClass="KYCViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="oN4-Pt-fEZ"/>
                         <viewControllerLayoutGuide type="bottom" id="uf5-2c-3kn"/>
@@ -27,8 +27,8 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EbS-6u-uio" userLabel="ContentView">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1200"/>
                                         <subviews>
-                                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-Ma-Y4a" customClass="View" customModule="reli" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="116" width="374" height="205"/>
+                                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5D7-Ma-Y4a" customClass="View" customModule="Rely" customModuleProvider="target">
+                                                <rect key="frame" x="20" y="116" width="374" height="150"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wO4-fw-cDi">
                                                         <rect key="frame" x="336" y="8" width="30" height="30"/>
@@ -46,7 +46,7 @@
                                                             <action selector="dismiss:" destination="bKS-mR-MKC" eventType="touchUpInside" id="GUB-3Q-0HC"/>
                                                         </connections>
                                                     </button>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VvE-9e-Dpe" customClass="View" customModule="reli" customModuleProvider="target">
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VvE-9e-Dpe" customClass="View" customModule="Rely" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="46" width="334" height="67"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bank-green" translatesAutoresizingMaskIntoConstraints="NO" id="8Fy-KC-xwM">
@@ -85,26 +85,15 @@
                                                             <constraint firstItem="8Fy-KC-xwM" firstAttribute="leading" secondItem="VvE-9e-Dpe" secondAttribute="leading" constant="15" id="wdk-f5-tTw"/>
                                                         </constraints>
                                                     </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UYG-Hm-c35">
-                                                        <rect key="frame" x="8" y="147" width="358" height="2"/>
-                                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="2" id="pwP-oD-n4W"/>
-                                                        </constraints>
-                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="205" id="64N-Jd-0Hp"/>
-                                                    <constraint firstAttribute="trailing" secondItem="UYG-Hm-c35" secondAttribute="trailing" constant="8" id="7rY-tr-99l"/>
+                                                    <constraint firstAttribute="height" constant="150" id="64N-Jd-0Hp"/>
                                                     <constraint firstAttribute="trailing" secondItem="wO4-fw-cDi" secondAttribute="trailing" constant="8" id="DMJ-o4-PLU"/>
-                                                    <constraint firstItem="UYG-Hm-c35" firstAttribute="centerX" secondItem="5D7-Ma-Y4a" secondAttribute="centerX" id="KUg-8y-ing"/>
                                                     <constraint firstAttribute="trailing" secondItem="VvE-9e-Dpe" secondAttribute="trailing" constant="20" id="Lmd-Qa-cXV"/>
-                                                    <constraint firstItem="UYG-Hm-c35" firstAttribute="centerY" secondItem="5D7-Ma-Y4a" secondAttribute="centerY" constant="45.5" id="Otm-Ud-QhG"/>
                                                     <constraint firstItem="wO4-fw-cDi" firstAttribute="top" secondItem="5D7-Ma-Y4a" secondAttribute="top" constant="8" id="hDv-no-AaJ"/>
                                                     <constraint firstItem="VvE-9e-Dpe" firstAttribute="leading" secondItem="5D7-Ma-Y4a" secondAttribute="leading" constant="20" id="hOm-Si-8vs"/>
                                                     <constraint firstItem="VvE-9e-Dpe" firstAttribute="top" secondItem="wO4-fw-cDi" secondAttribute="bottom" constant="8" id="tZJ-a9-p8A"/>
-                                                    <constraint firstItem="UYG-Hm-c35" firstAttribute="leading" secondItem="5D7-Ma-Y4a" secondAttribute="leading" constant="8" id="x8T-zi-d2b"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -139,7 +128,6 @@
                     <size key="freeformSize" width="414" height="800"/>
                     <connections>
                         <outlet property="innerView" destination="5D7-Ma-Y4a" id="dXF-aL-56d"/>
-                        <outlet property="kycView" destination="UYG-Hm-c35" id="la4-oE-qSQ"/>
                         <outlet property="linkBankCheckMark" destination="Yks-pg-F2R" id="CAn-Pd-ecE"/>
                         <outlet property="linkBankView" destination="VvE-9e-Dpe" id="NFd-Ds-1FU"/>
                     </connections>
@@ -151,7 +139,7 @@
         <!--Info View Controller-->
         <scene sceneID="ZtZ-j1-0Zs">
             <objects>
-                <viewController storyboardIdentifier="KYCInfoViewController" id="Pz2-12-RaS" customClass="KYCInfoViewController" customModule="reli" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="KYCInfoViewController" id="Pz2-12-RaS" customClass="KYCInfoViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Lvm-DD-5jd"/>
                         <viewControllerLayoutGuide type="bottom" id="Kun-V4-cjN"/>
@@ -160,7 +148,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3a-Bi-GAQ" customClass="View" customModule="reli" customModuleProvider="target">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W3a-Bi-GAQ" customClass="View" customModule="Rely" customModuleProvider="target">
                                 <rect key="frame" x="20" y="325" width="374" height="287"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="ehc-3q-qG2">

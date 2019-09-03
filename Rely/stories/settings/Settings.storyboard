@@ -18,12 +18,12 @@
         <!--Settings View Controller-->
         <scene sceneID="BLd-jd-xqL">
             <objects>
-                <viewController storyboardIdentifier="SettingsViewController" id="v7Q-fU-0EB" customClass="SettingsViewController" customModule="esgro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="v7Q-fU-0EB" customClass="SettingsViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hn4-dW-tTD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKv-U2-SkP" customClass="View" customModule="esgro" customModuleProvider="target">
+                            <view autoresizesSubviews="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKv-U2-SkP" customClass="View" customModule="Rely" customModuleProvider="target">
                                 <rect key="frame" x="20" y="103" width="374" height="435"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XPZ-wq-RUO">
@@ -262,7 +262,7 @@
         <!--Bank Link View Controller-->
         <scene sceneID="sgk-2j-cYr">
             <objects>
-                <viewController storyboardIdentifier="BankLinkViewController" id="KkH-mW-SWx" customClass="BankLinkViewController" customModule="esgro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BankLinkViewController" id="KkH-mW-SWx" customClass="BankLinkViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OJw-Kf-cz5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -272,49 +272,45 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="BankTableViewCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BankTableViewCell" rowHeight="87" id="HNE-Dn-NpL" customClass="BankTableViewCell" customModule="esgro" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="87"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BankTableViewCell" id="0Xl-Bw-dqu" customClass="BankTableViewCell" customModule="Rely" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HNE-Dn-NpL" id="EY1-GS-3m1" customClass="View" customModule="esgro" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="87"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Xl-Bw-dqu" id="5Ak-V4-tGA">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m40-AV-Yem" customClass="View" customModule="esgro" customModuleProvider="target">
-                                                    <rect key="frame" x="11" y="6" width="392" height="74"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b05-pg-ycU" customClass="View" customModule="Rely" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="5" width="374" height="34"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehl-yq-cfL">
-                                                            <rect key="frame" x="49" y="39" width="292" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Account Mask" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsb-tn-vq8">
-                                                            <rect key="frame" x="49" y="10" width="292" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBm-YV-dcA">
+                                                            <rect key="frame" x="166" y="6.5" width="42" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstItem="gBm-YV-dcA" firstAttribute="centerX" secondItem="b05-pg-ycU" secondAttribute="centerX" id="Seh-Tw-VFl"/>
+                                                        <constraint firstItem="gBm-YV-dcA" firstAttribute="centerY" secondItem="b05-pg-ycU" secondAttribute="centerY" id="rMK-lh-ZuW"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="m40-AV-Yem" firstAttribute="top" secondItem="EY1-GS-3m1" secondAttribute="top" constant="6" id="F7H-Sg-eXq"/>
-                                                <constraint firstAttribute="bottom" secondItem="m40-AV-Yem" secondAttribute="bottom" constant="7" id="Kgn-1n-cMK"/>
-                                                <constraint firstAttribute="trailing" secondItem="m40-AV-Yem" secondAttribute="trailing" constant="11" id="ZTb-Sl-MX1"/>
-                                                <constraint firstItem="m40-AV-Yem" firstAttribute="leading" secondItem="EY1-GS-3m1" secondAttribute="leading" constant="11" id="pSc-kt-4YU"/>
+                                                <constraint firstAttribute="trailing" secondItem="b05-pg-ycU" secondAttribute="trailing" constant="20" id="0dK-DY-IQq"/>
+                                                <constraint firstItem="b05-pg-ycU" firstAttribute="leading" secondItem="5Ak-V4-tGA" secondAttribute="leading" constant="20" id="1Rd-sr-aUm"/>
+                                                <constraint firstItem="b05-pg-ycU" firstAttribute="top" secondItem="5Ak-V4-tGA" secondAttribute="top" constant="5" id="3LA-Zh-Ewf"/>
+                                                <constraint firstAttribute="bottom" secondItem="b05-pg-ycU" secondAttribute="bottom" constant="5" id="lnZ-tS-QXU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="accountMask" destination="Zsb-tn-vq8" id="e3q-Dy-dQo"/>
-                                            <outlet property="accountName" destination="ehl-yq-cfL" id="oOX-dV-art"/>
+                                            <outlet property="accountName" destination="gBm-YV-dcA" id="Gjz-fV-r39"/>
+                                            <outlet property="accountView" destination="b05-pg-ycU" id="jef-xa-9gD"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyN-5C-Fb8" customClass="View" customModule="esgro" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AyN-5C-Fb8" customClass="View" customModule="Rely" customModuleProvider="target">
                                 <rect key="frame" x="24" y="120" width="366" height="74"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Link Bank Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDw-DE-Kn8">
@@ -338,12 +334,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AyN-5C-Fb8" firstAttribute="leading" secondItem="g1D-Cq-OUd" secondAttribute="leading" constant="24" id="1L1-pV-drc"/>
-                            <constraint firstItem="eJx-w7-oo0" firstAttribute="top" secondItem="AyN-5C-Fb8" secondAttribute="bottom" constant="24" id="2cS-r6-geg"/>
+                            <constraint firstItem="eJx-w7-oo0" firstAttribute="leading" secondItem="g1D-Cq-OUd" secondAttribute="leading" id="3O5-jy-grB"/>
                             <constraint firstItem="AyN-5C-Fb8" firstAttribute="top" secondItem="g1D-Cq-OUd" secondAttribute="top" constant="76" id="F76-tj-kEp"/>
-                            <constraint firstAttribute="bottom" secondItem="eJx-w7-oo0" secondAttribute="bottom" id="cPK-dc-dam"/>
-                            <constraint firstItem="eJx-w7-oo0" firstAttribute="leading" secondItem="g1D-Cq-OUd" secondAttribute="leading" id="gXS-Ej-WzE"/>
+                            <constraint firstAttribute="bottom" secondItem="eJx-w7-oo0" secondAttribute="bottom" id="cfu-8O-ob0"/>
                             <constraint firstItem="g1D-Cq-OUd" firstAttribute="trailing" secondItem="AyN-5C-Fb8" secondAttribute="trailing" constant="24" id="kRA-V6-dAq"/>
-                            <constraint firstAttribute="trailing" secondItem="eJx-w7-oo0" secondAttribute="trailing" id="r7u-AR-SVv"/>
+                            <constraint firstItem="eJx-w7-oo0" firstAttribute="trailing" secondItem="g1D-Cq-OUd" secondAttribute="trailing" id="uVG-PD-eVC"/>
+                            <constraint firstItem="eJx-w7-oo0" firstAttribute="top" secondItem="AyN-5C-Fb8" secondAttribute="bottom" constant="24" id="vfQ-7b-0cu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="g1D-Cq-OUd"/>
                     </view>
@@ -354,12 +350,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aRs-dG-XcM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5120" y="3249"/>
+            <point key="canvasLocation" x="5119" y="3303"/>
         </scene>
         <!--Under Construction View Controller-->
         <scene sceneID="ZxW-4E-Ate">
             <objects>
-                <viewController storyboardIdentifier="BlankVC" id="kT5-ic-HxG" customClass="UnderConstructionViewController" customModule="esgro" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="BlankVC" id="kT5-ic-HxG" customClass="UnderConstructionViewController" customModule="Rely" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ftr-XR-U3F">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

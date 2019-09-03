@@ -10,11 +10,12 @@ import UIKit
 
 class SubmitRequestViewController: UIViewController, UIPopoverPresentationControllerDelegate {
 
-    
+
     @IBOutlet weak var userNameBtn: UIButton!
     @IBOutlet weak var amountTxt: UILabel!
     @IBOutlet weak var reserveTxt: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    @IBOutlet weak var feeLabel: UILabel!
     
     var requestBuilder : RequestBuilder!
     
@@ -42,6 +43,9 @@ class SubmitRequestViewController: UIViewController, UIPopoverPresentationContro
         
         self.hideKeyboardWhenTappedAround()
         self.tabBarController?.tabBar.isHidden = true
+        
+        // Get the fee
+        checkAndUpdateFee(requestBuilder: self.requestBuilder)
     }
     
     // If we send, then we are the payer
@@ -107,6 +111,23 @@ class SubmitRequestViewController: UIViewController, UIPopoverPresentationContro
     }
     
     
+    func checkAndUpdateFee(requestBuilder: RequestBuilder) {
+        requestBuilder.description = ""
+        guard let request = Request(requestBuilder: requestBuilder) else {
+            return
+        }
+        request.checkFee(){ (json, code, _) in
+            guard
+                code == 200,
+                let data = json?["data"] as? [String: Any],
+                let fee = data["fee"] as? Int
+                else {
+                    self.alert(title: "Unable to determine fee!", message: "", completion: nil)
+                    return
+            }
+            self.feeLabel.text = minorToMajorCurrencyStr(minor: fee)
+        }
+    }
     
     func submitTxn(request: Request) {
         request.submit(){ (json, code, error) in

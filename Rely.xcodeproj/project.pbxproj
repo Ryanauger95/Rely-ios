@@ -27,7 +27,6 @@
 		0CC4D64E231812D500497D21 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D642231812D500497D21 /* Config.swift */; };
 		0CC4D64F231812D500497D21 /* Validations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D643231812D500497D21 /* Validations.swift */; };
 		0CC4D650231812D500497D21 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D644231812D500497D21 /* User.swift */; };
-		0CC4D651231812D500497D21 /* BankApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D645231812D500497D21 /* BankApi.swift */; };
 		0CC4D652231812D500497D21 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D646231812D500497D21 /* Request.swift */; };
 		0CC4D653231812D500497D21 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D647231812D500497D21 /* Notification.swift */; };
 		0CC4D654231812D500497D21 /* Txn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D648231812D500497D21 /* Txn.swift */; };
@@ -161,7 +160,6 @@
 		0CC4D642231812D500497D21 /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		0CC4D643231812D500497D21 /* Validations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validations.swift; sourceTree = "<group>"; };
 		0CC4D644231812D500497D21 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		0CC4D645231812D500497D21 /* BankApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankApi.swift; sourceTree = "<group>"; };
 		0CC4D646231812D500497D21 /* Request.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		0CC4D647231812D500497D21 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		0CC4D648231812D500497D21 /* Txn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Txn.swift; sourceTree = "<group>"; };
@@ -367,7 +365,6 @@
 				0CC4D642231812D500497D21 /* Config.swift */,
 				0CC4D643231812D500497D21 /* Validations.swift */,
 				0CC4D644231812D500497D21 /* User.swift */,
-				0CC4D645231812D500497D21 /* BankApi.swift */,
 				0CC4D646231812D500497D21 /* Request.swift */,
 				0CC4D647231812D500497D21 /* Notification.swift */,
 				0CC4D648231812D500497D21 /* Txn.swift */,
@@ -447,10 +444,10 @@
 		0CC4D6A4231812EE00497D21 /* settings */ = {
 			isa = PBXGroup;
 			children = (
+				0CC4D6A8231812EE00497D21 /* Settings.storyboard */,
 				0CC4D6A5231812EE00497D21 /* UnderConstructionViewController.swift */,
 				0CC4D6A6231812EE00497D21 /* BankTableViewCell.swift */,
 				0CC4D6A7231812EE00497D21 /* BankLinkViewController.swift */,
-				0CC4D6A8231812EE00497D21 /* Settings.storyboard */,
 				0CC4D6A9231812EE00497D21 /* SettingsViewController.swift */,
 			);
 			path = settings;
@@ -490,8 +487,8 @@
 		0CC4D6B8231812EE00497D21 /* profile */ = {
 			isa = PBXGroup;
 			children = (
-				0CC4D6B9231812EE00497D21 /* CompleteProfileViewController.swift */,
 				0CC4D6BA231812EE00497D21 /* Profile.storyboard */,
+				0CC4D6B9231812EE00497D21 /* CompleteProfileViewController.swift */,
 				0CC4D6BB231812EE00497D21 /* ProfileViewController.swift */,
 			);
 			path = profile;
@@ -842,7 +839,6 @@
 				0CC4D6E7231812EE00497D21 /* CompleteProfileViewController.swift in Sources */,
 				0CC4D67D231812DF00497D21 /* UIColor+Hex.swift in Sources */,
 				0CC4D693231812DF00497D21 /* UIImage+JPEG.swift in Sources */,
-				0CC4D651231812D500497D21 /* BankApi.swift in Sources */,
 				0CC4D6E5231812EE00497D21 /* CodeEntryViewController.swift in Sources */,
 				0CC4D677231812DF00497D21 /* UITableView+Header.swift in Sources */,
 				0CC4D68E231812DF00497D21 /* Date+toString.swift in Sources */,

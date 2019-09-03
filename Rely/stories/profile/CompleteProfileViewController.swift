@@ -44,13 +44,13 @@ class CompleteProfileViewController: ImagePickerViewController{
     // LINK BANK ACCOUNT
     @objc func linkBank() {
 //        self.presentPlaidLinkWithSharedConfiguration()
-        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
-        let nextVC = storyboard.instantiateViewController(withIdentifier: "BankLinkViewController") as! BankLinkViewController
-        let exitButton = UIButton(frame: CGRect(x: nextVC.view.frame.width - 50, y: 40, width: 50, height: 50))
-        exitButton.setTitle("X", for: .normal)
-        exitButton.addTarget(nextVC, action: #selector(nextVC.dismissModal), for: .touchUpInside)
-        nextVC.view.addSubview(exitButton)
-        self.present(nextVC, animated: true)
+//        let storyboard = UIStoryboard(name: "Settings", bundle: nil)
+//        let nextVC = storyboard.instantiateViewController(withIdentifier: "BankLinkViewController") as! BankLinkViewController
+//        let exitButton = UIButton(frame: CGRect(x: nextVC.view.frame.width - 50, y: 40, width: 50, height: 50))
+//        exitButton.setTitle("X", for: .normal)
+//        exitButton.addTarget(nextVC, action: #selector(nextVC.dismissModal), for: .touchUpInside)
+//        nextVC.view.addSubview(exitButton)
+//        self.present(nextVC, animated: true)
     }
     @objc func dismissModal() {
         self.dismiss(animated: true, completion: nil)

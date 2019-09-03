@@ -24,6 +24,8 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
     
     var user : User!
     var plaidToken : String? = nil
+    var account : User.Account? = nil
+
     
     // Controls the flow
     // if KYC is required, then both bank and KYC are required
@@ -54,7 +56,7 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
     func changeBankLinkImageToComplete(){
         self.linkBankCheckMark.image = UIImage(named: "check-green")
     }
-    func handleBankLinkComplete(publicToken: String){
+    func handleBankLinkComplete(account: User.Account, publicToken: String){
         self.changeBankLinkImageToComplete()
         
         // Prevent the user from attempting to link another bank account
@@ -62,6 +64,7 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
         
         // Save the public token
         self.plaidToken = publicToken
+        self.account = account
         if (kycRequired == true){
             self.presentKYCView()
         } else {
@@ -70,12 +73,15 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
         }
     }
     func linkBankAndDismiss(){
-        guard let publicToken = self.plaidToken else {
+        guard
+            let publicToken = self.plaidToken,
+            let account = self.account
+        else {
             bankLinkError()
             return
         }
         self.addActivity()
-        user.linkBankToWallet(publicToken: publicToken, completion: { (json, code, error) in
+        user.linkBankToWallet(account: account, publicToken: publicToken, completion: { (json, code, error) in
             self.removeActivity()
             if (code == 200) {
                 self.dismissAndRunCompletion(success: true)
@@ -104,9 +110,9 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
         // Add the KYC View to the frame with an animation
         self.addActivity()
         let kycView = loadKycViewFromNib()
-        kycView.frame = CGRect(x: self.kycView.frame.origin.x, y: self.kycView.frame.origin.y, width: self.kycView.frame.width, height: 430)
+        kycView.frame = CGRect(x: 0, y: self.innerView.frame.height, width: self.innerView.frame.width, height: 430)
         self.innerView.frame = CGRect(x: self.innerView.frame.origin.x, y: self.innerView.frame.origin.y, width: self.innerView.frame.width, height: self.innerView.frame.height + 430)
-        self.kycView.removeFromSuperview()
+//        self.kycView.removeFromSuperview()
         self.innerView.addSubview(kycView)
         self.removeActivity()
     }
@@ -147,9 +153,20 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
         present(linkViewController, animated: true)
     }
     func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didSucceedWithPublicToken publicToken: String, metadata: [String : Any]?) {
+        print("Metadata: ", metadata)
+        guard
+            let institution = metadata?["institution"] as? [String:Any],
+            let institutionName = institution["name"] as? String,
+            let accountObj = metadata?["account"] as? [String:Any],
+            let mask = accountObj["mask"] as? String,
+            let typeName = accountObj["name"] as? String
+        else {
+                return
+        }
+        let account = User.Account(institution: institutionName, mask: mask, type: typeName)
         dismiss(animated: true){
             DispatchQueue.main.async {
-                self.handleBankLinkComplete(publicToken: publicToken)
+                self.handleBankLinkComplete(account: account, publicToken: publicToken)
             }
         }
     }

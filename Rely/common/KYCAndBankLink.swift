@@ -10,7 +10,8 @@ import Foundation
 
 typealias KYCResultCb = (Bool) -> Void
 
-func performKYCIfNeeded(vc: UIViewController, user: User, completion: @escaping KYCResultCb) {
+
+func performKYCIfNeeded(vc: UIViewController, user: User, additionalBankLink: Bool? = false, completion: @escaping KYCResultCb) {
     // If the user is sending the money, then
     // 1. Check to see if user is registered with SILA
     user.getWallet(){(json, code, error) in
@@ -23,7 +24,7 @@ func performKYCIfNeeded(vc: UIViewController, user: User, completion: @escaping 
                     return
             }
             if (bankLinked == true) {
-                completion(true)
+                presentKYC(vc: vc, kycRequired: false, completion: completion)
             } else {
                 presentKYC(vc: vc, kycRequired: false, completion: completion)
                 // TODO: once complete, run callback

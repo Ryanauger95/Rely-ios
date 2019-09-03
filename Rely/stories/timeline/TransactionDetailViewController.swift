@@ -86,7 +86,7 @@ class TransactionDetailViewController: UIViewController {
         case .PROGRESS:
             // If in progress, the collector can mark as complete
             if (self.deal.fundState != FUND_STATE.FEE_COMPLETE){
-                self.stateLbl.text = String(format: "Waiting for funds to transfer into account", self.peer.firstName!)
+                self.stateLbl.text = String(format: "Waiting for funds to transfer into holding", self.peer.firstName!)
                 self.checkButton.imageView?.image = UIImage(named: "check-gray")
                 break;
             }

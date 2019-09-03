@@ -10,6 +10,16 @@ import UIKit
 
 class Request: RequestModel {
 
+    // Check the fee owed
+    func checkFee(completion: @escaping WebServiceResponse){
+        //Convert amounts to integers!
+        let amount: Int = Int(self.totalAmount * 100)
+        apiPOST(endpoint: apiEndpoint.Txn, path: "/fee", body:
+            [
+                "amount": amount,
+                "originator": self.originator as Any
+            ], completion: completion)
+    }
     // save request as deal
     func submit(completion: @escaping WebServiceResponse){
         //Convert amounts to integers!
