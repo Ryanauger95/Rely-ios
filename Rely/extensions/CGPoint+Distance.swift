@@ -1,17 +1,9 @@
 //
 //  UIView+Distance.swift
-//  RelySIGNATURE
+//  Rely
 //
-//  Created by Ryan Auger on 5/30/19.
+//  Created by Ryan Auger on 7/30/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.
-//
-
-//
-//  CGPoint.swift
-//  Pods
-//
-//  Created by Chris Anderson on 2/1/17.
-//
 //
 
 import Foundation

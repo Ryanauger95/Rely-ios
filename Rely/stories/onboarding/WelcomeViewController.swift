@@ -21,8 +21,8 @@ class WelcomeViewController: UIViewController {
         self.styleClearNav()
         
         // Style buttons
-        self.getStartedButton.lightGreenStyle()
-        self.signInButton.greenStyle()
+        self.getStartedButton.lightBlueStyle()
+        self.signInButton.blueStyle()
         
 
         // Check to see if the user has previously logged in.

@@ -33,7 +33,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate{
         // Set up UI
         self.title = "Sign Up"
         self.styleClearNav()
-        self.continueBtn.greenStyle()
+        self.continueBtn.blueStyle()
         self.firstName.inputStyle()
         self.lastName.inputStyle()
         self.password.inputStyle()

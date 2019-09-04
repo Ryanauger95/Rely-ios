@@ -20,9 +20,9 @@ class ContactViewController: UIViewController {
         super.viewDidLoad()
 
         // style the buttons
-        self.callView.lightGreenStyle()
-        self.textView.lightGreenStyle()
-        self.emailView.lightGreenStyle()
+        self.callView.lightBlueStyle()
+        self.textView.lightBlueStyle()
+        self.emailView.lightBlueStyle()
         
         // set up buttons
         let callGesture = UITapGestureRecognizer(target: self, action:  #selector(self.call))

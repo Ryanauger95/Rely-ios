@@ -1,8 +1,8 @@
 //
 //  UIView+Gradient.swift
-//  RelySIGNATURE
+//  Rely
 //
-//  Created by Ryan Auger on 5/19/19.
+//  Created by Ryan Auger on 7/20/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 

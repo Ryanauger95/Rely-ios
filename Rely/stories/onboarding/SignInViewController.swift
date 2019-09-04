@@ -33,8 +33,8 @@ class SignInViewController: UIViewController {
         self.styleClearNav()
         
         // Style buttons
-        self.getStartedBtn.lightGreenStyle()
-        self.continueBtn.greenStyle()
+        self.getStartedBtn.lightBlueStyle()
+        self.continueBtn.blueStyle()
 
         // Hide Keyboard when pressed outside
         self.hideKeyboardWhenTappedAround()

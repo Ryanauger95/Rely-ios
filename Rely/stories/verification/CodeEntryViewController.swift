@@ -128,8 +128,4 @@ class CodeEntryViewController: UIViewController, UITextFieldDelegate {
         }
     }
 }
-//extension UIViewController: UITextFieldDelegate{
-//    func textFieldDidBeginEditing(textField: UITextField) {
-//        textField.text = ""
-//    }
-//}
+

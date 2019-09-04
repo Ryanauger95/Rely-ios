@@ -1,6 +1,6 @@
 //
 //  UIView+toImage.swift
-//  RelySIGNATURE
+//  Rely
 //
 //  Created by Ryan Auger on 5/30/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.

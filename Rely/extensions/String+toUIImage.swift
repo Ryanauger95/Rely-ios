@@ -1,6 +1,6 @@
 //
 //  String+toJpeg.swift
-//  reli
+//  Rely
 //
 //  Created by Ryan Auger on 8/27/19.
 //  Copyright © 2019        . All rights reserved.

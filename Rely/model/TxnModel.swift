@@ -2,7 +2,7 @@
 //  DealModel.swift
 //  Rely
 //
-//  Created by Ryan Auger on 4/24/19.
+//  Created by Ryan Auger on 7/24/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 

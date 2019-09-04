@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         self.styleDarkNav()
-        self.signOutButton.greenStyle()
+        self.signOutButton.blueStyle()
         self.title = "Settings"
 
         

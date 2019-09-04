@@ -1,6 +1,6 @@
 //
 //  Date+toString.swift
-//  RelySIGNATURE
+//  Rely
 //
 //  Created by Ryan Auger on 6/7/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.

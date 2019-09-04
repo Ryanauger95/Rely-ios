@@ -2,7 +2,7 @@
 //  UserModel.swift
 //  Rely
 //
-//  Created by Ryan Auger on 4/2/19.
+//  Created by Ryan Auger on 7/2/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 

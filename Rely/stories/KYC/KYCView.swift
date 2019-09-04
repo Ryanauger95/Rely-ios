@@ -1,6 +1,6 @@
 //
 //  KYCView.swift
-//  reli
+//  Rely
 //
 //  Created by Ryan Auger on 8/28/19.
 //  Copyright © 2019        . All rights reserved.
@@ -21,7 +21,7 @@ class KYCView: UIView {
     var requestDelegate: RequestProtocol?
     
     override func awakeFromNib() {
-        self.completeButton.greenStyle()
+        self.completeButton.blueStyle()
         self.addressOneTextField.becomeFirstResponder()
         
         #if targetEnvironment(simulator)

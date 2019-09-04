@@ -2,7 +2,7 @@
 //  BankModel.swift
 //  Rely
 //
-//  Created by Ryan Auger on 4/16/19.
+//  Created by Ryan Auger on 7/16/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 

@@ -1,8 +1,8 @@
 //
-//  DisputeNoHistoryViewController.swift
+//  TransactionDetailViewController.swift
 //  Rely
 //
-//  Created by Ryan Auger on 2/11/19.
+//  Created by Ryan Auger on 7/5/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 

@@ -52,14 +52,12 @@
 		0CC4D68C231812DF00497D21 /* CGPoint+Distance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D66E231812DF00497D21 /* CGPoint+Distance.swift */; };
 		0CC4D68D231812DF00497D21 /* UITextField+Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D66F231812DF00497D21 /* UITextField+Style.swift */; };
 		0CC4D68E231812DF00497D21 /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D670231812DF00497D21 /* Date+toString.swift */; };
-		0CC4D68F231812DF00497D21 /* UIView+EsgroStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D671231812DF00497D21 /* UIView+EsgroStyle.swift */; };
+		0CC4D68F231812DF00497D21 /* UIView+RelyStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D671231812DF00497D21 /* UIView+RelyStyle.swift */; };
 		0CC4D690231812DF00497D21 /* UITextField+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D672231812DF00497D21 /* UITextField+Padding.swift */; };
 		0CC4D691231812DF00497D21 /* UIView+shadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D673231812DF00497D21 /* UIView+shadow.swift */; };
 		0CC4D692231812DF00497D21 /* UIView+toImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D674231812DF00497D21 /* UIView+toImage.swift */; };
 		0CC4D693231812DF00497D21 /* UIImage+JPEG.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D675231812DF00497D21 /* UIImage+JPEG.swift */; };
-		0CC4D69C231812E500497D21 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D695231812E500497D21 /* Person.swift */; };
 		0CC4D69D231812E500497D21 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D696231812E500497D21 /* RequestBuilder.swift */; };
-		0CC4D69E231812E500497D21 /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D697231812E500497D21 /* NotificationModel.swift */; };
 		0CC4D69F231812E500497D21 /* TxnModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D698231812E500497D21 /* TxnModel.swift */; };
 		0CC4D6A0231812E500497D21 /* BankModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D699231812E500497D21 /* BankModel.swift */; };
 		0CC4D6A1231812E500497D21 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D69A231812E500497D21 /* UserModel.swift */; };
@@ -186,14 +184,12 @@
 		0CC4D66E231812DF00497D21 /* CGPoint+Distance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CGPoint+Distance.swift"; sourceTree = "<group>"; };
 		0CC4D66F231812DF00497D21 /* UITextField+Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Style.swift"; sourceTree = "<group>"; };
 		0CC4D670231812DF00497D21 /* Date+toString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+toString.swift"; sourceTree = "<group>"; };
-		0CC4D671231812DF00497D21 /* UIView+EsgroStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+EsgroStyle.swift"; sourceTree = "<group>"; };
+		0CC4D671231812DF00497D21 /* UIView+RelyStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+RelyStyle.swift"; sourceTree = "<group>"; };
 		0CC4D672231812DF00497D21 /* UITextField+Padding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField+Padding.swift"; sourceTree = "<group>"; };
 		0CC4D673231812DF00497D21 /* UIView+shadow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+shadow.swift"; sourceTree = "<group>"; };
 		0CC4D674231812DF00497D21 /* UIView+toImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+toImage.swift"; sourceTree = "<group>"; };
 		0CC4D675231812DF00497D21 /* UIImage+JPEG.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+JPEG.swift"; sourceTree = "<group>"; };
-		0CC4D695231812E500497D21 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		0CC4D696231812E500497D21 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
-		0CC4D697231812E500497D21 /* NotificationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		0CC4D698231812E500497D21 /* TxnModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TxnModel.swift; sourceTree = "<group>"; };
 		0CC4D699231812E500497D21 /* BankModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BankModel.swift; sourceTree = "<group>"; };
 		0CC4D69A231812E500497D21 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
@@ -398,7 +394,7 @@
 				0CC4D66E231812DF00497D21 /* CGPoint+Distance.swift */,
 				0CC4D66F231812DF00497D21 /* UITextField+Style.swift */,
 				0CC4D670231812DF00497D21 /* Date+toString.swift */,
-				0CC4D671231812DF00497D21 /* UIView+EsgroStyle.swift */,
+				0CC4D671231812DF00497D21 /* UIView+RelyStyle.swift */,
 				0CC4D672231812DF00497D21 /* UITextField+Padding.swift */,
 				0CC4D673231812DF00497D21 /* UIView+shadow.swift */,
 				0CC4D674231812DF00497D21 /* UIView+toImage.swift */,
@@ -411,9 +407,7 @@
 		0CC4D694231812E500497D21 /* model */ = {
 			isa = PBXGroup;
 			children = (
-				0CC4D695231812E500497D21 /* Person.swift */,
 				0CC4D696231812E500497D21 /* RequestBuilder.swift */,
-				0CC4D697231812E500497D21 /* NotificationModel.swift */,
 				0CC4D698231812E500497D21 /* TxnModel.swift */,
 				0CC4D699231812E500497D21 /* BankModel.swift */,
 				0CC4D69A231812E500497D21 /* UserModel.swift */,
@@ -869,14 +863,13 @@
 				0CC4D68E231812DF00497D21 /* Date+toString.swift in Sources */,
 				0CC4D6F7231812EE00497D21 /* TimelineViewController.swift in Sources */,
 				0CC4D64F231812D500497D21 /* Validations.swift in Sources */,
-				0CC4D69C231812E500497D21 /* Person.swift in Sources */,
 				0CC4D6FA231812EE00497D21 /* ReserveViewController.swift in Sources */,
 				0CC4D652231812D500497D21 /* Request.swift in Sources */,
 				0CC4D6E6231812EE00497D21 /* MobileVerificationViewController.swift in Sources */,
 				0CC4D64C231812D500497D21 /* UserAuthHandler.swift in Sources */,
 				0CC4D638231812C700497D21 /* DLRadioButton.m in Sources */,
 				0CC4D686231812DF00497D21 /* UITextField+BottomBorder.swift in Sources */,
-				0CC4D68F231812DF00497D21 /* UIView+EsgroStyle.swift in Sources */,
+				0CC4D68F231812DF00497D21 /* UIView+RelyStyle.swift in Sources */,
 				0CC4D6EE231812EE00497D21 /* AmountViewController.swift in Sources */,
 				0CC4D69F231812E500497D21 /* TxnModel.swift in Sources */,
 				0CC4D692231812DF00497D21 /* UIView+toImage.swift in Sources */,
@@ -916,7 +909,6 @@
 				0CC4D691231812DF00497D21 /* UIView+shadow.swift in Sources */,
 				0CC4D6FD231812EE00497D21 /* SignUpViewController.swift in Sources */,
 				0CC4D6D7231812EE00497D21 /* UnderConstructionViewController.swift in Sources */,
-				0CC4D69E231812E500497D21 /* NotificationModel.swift in Sources */,
 				0CDBCDF9232038760012E933 /* CurrencyConversionProtocol.swift in Sources */,
 				0CC4D6A2231812E500497D21 /* RequestModel.swift in Sources */,
 				0CC4D6E3231812EE00497D21 /* KYCInfoViewController.swift in Sources */,
