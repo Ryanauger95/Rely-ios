@@ -2,8 +2,8 @@
 //  Validations.swift
 //  Rely
 //
-//  Created by kavii on 4/4/19.
-//  Copyright © 2019 kavii. All rights reserved.
+//  Created by Ryan Auger on 6/4/19.
+//  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 
 import Foundation

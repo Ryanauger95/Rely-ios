@@ -2,8 +2,8 @@
 //  DealApi.swift
 //  Rely
 //
-//  Created by kavii on 4/24/19.
-//  Copyright © 2019 kavii. All rights reserved.
+//  Created by Ryan Auger on 6/24/19.
+//  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 
 import Foundation
@@ -13,7 +13,7 @@ enum cancelType : Int{
     case returnReserve = 1
 }
 
-class Txn : TxnModel{
+class Txn : TxnModel, CurrencyConversionProtocol {
 
     // Update Deal State
     func updateState(newState: DEAL_STATE, completion: @escaping WebServiceResponse){
@@ -24,13 +24,28 @@ class Txn : TxnModel{
                 "new_state" : newState.rawValue as Any
             ], completion: completion)
     }
+    
+    //Update deal state, but more involved
+    func dispute(collectorAmount:Int, payerAmount: Int, completion: @escaping (Bool) -> Void){
+        let path = String(format: "/%d", self.dealId)
+        apiPUT(endpoint: .Txn, path: path, body:
+            [
+                "state_change": true,
+                "new_state": DEAL_STATE.DISPUTE.rawValue,
+                "dispute_payer_amount": payerAmount,
+                "dispute_collector_amount": collectorAmount
+            ]
+        ){(json, code, error) in
+            guard code == 200 else {
+                completion(false)
+                return
+            }
+            completion(true)
+        }
+        
+    }
+    
 
-    func amountStr() -> String {
-        return String(format: "%.2f", Double(self.amount)/100)
-    }
-    func reserveStr() -> String {
-        return String(format:"%.2f", Double(self.reserve)/100)
-    }
     func isActive() -> Bool {
         switch (self.dealState) {
         case .DISPUTE:
@@ -50,6 +65,8 @@ class Txn : TxnModel{
 
         }
     }
+    
+    
 }
 
 func minorToMajorCurrencyStr(minor: Int) -> String{

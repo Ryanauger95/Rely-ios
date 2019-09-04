@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DisputeSliderView" customModule="Rely" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Oi-E4-dg7" customClass="View" customModule="Rely" customModuleProvider="target">
+                    <rect key="frame" x="20" y="260" width="374" height="376"/>
+                    <subviews>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="t6Q-g5-aQs">
+                            <rect key="frame" x="6" y="233" width="362" height="31"/>
+                            <connections>
+                                <action selector="sliderValueChanged:" destination="iN0-l3-epB" eventType="valueChanged" id="xLZ-Th-8yC"/>
+                            </connections>
+                        </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Selected" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQa-37-YJo">
+                            <rect key="frame" x="8" y="283" width="358" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="JFk-FV-hjg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJO-iy-Y5t">
+                            <rect key="frame" x="160.5" y="338" width="53" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="53" id="8t3-pw-6Fe"/>
+                            </constraints>
+                            <state key="normal" title="Dispute">
+                                <color key="titleColor" red="1" green="0.1370381983079989" blue="0.0030037337020822896" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="dispute:" destination="iN0-l3-epB" eventType="touchUpInside" id="jE3-4G-IyA"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7bT-8u-R4F">
+                            <rect key="frame" x="336" y="8" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="Q6c-qv-iJ3"/>
+                                <constraint firstAttribute="height" constant="30" id="x2y-OU-Y3P"/>
+                            </constraints>
+                            <state key="normal" title="X"/>
+                            <connections>
+                                <action selector="dismiss:" destination="iN0-l3-epB" eventType="touchUpInside" id="pfv-Af-PqW"/>
+                            </connections>
+                        </button>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ju-Tz-Ooq">
+                            <rect key="frame" x="8" y="46" width="358" height="124"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="124" id="uzg-A8-apg"/>
+                            </constraints>
+                            <string key="text">When disputing a transaction, you cannot agree to pay less than the deposit amount. If in-app dispute resolution fails, money can only be retreived as the result of 3rd party arbitration.</string>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="t6Q-g5-aQs" firstAttribute="top" secondItem="4ju-Tz-Ooq" secondAttribute="bottom" constant="63" id="1gQ-ow-ES4"/>
+                        <constraint firstAttribute="trailing" secondItem="7bT-8u-R4F" secondAttribute="trailing" constant="8" id="7dT-Dc-ibK"/>
+                        <constraint firstItem="IQa-37-YJo" firstAttribute="top" secondItem="t6Q-g5-aQs" secondAttribute="bottom" constant="20" id="AXV-i0-Own"/>
+                        <constraint firstAttribute="bottom" secondItem="oJO-iy-Y5t" secondAttribute="bottom" constant="8" id="DHe-Bn-19G"/>
+                        <constraint firstItem="oJO-iy-Y5t" firstAttribute="centerX" secondItem="0Oi-E4-dg7" secondAttribute="centerX" id="JZB-VX-IuQ"/>
+                        <constraint firstItem="IQa-37-YJo" firstAttribute="leading" secondItem="0Oi-E4-dg7" secondAttribute="leading" constant="8" id="MK0-Ib-3IH"/>
+                        <constraint firstItem="7bT-8u-R4F" firstAttribute="top" secondItem="0Oi-E4-dg7" secondAttribute="top" constant="8" id="TXf-qk-npQ"/>
+                        <constraint firstItem="4ju-Tz-Ooq" firstAttribute="leading" secondItem="0Oi-E4-dg7" secondAttribute="leading" constant="8" id="TvM-pM-hvK"/>
+                        <constraint firstItem="t6Q-g5-aQs" firstAttribute="leading" secondItem="0Oi-E4-dg7" secondAttribute="leading" constant="8" id="lB4-Kd-GnK"/>
+                        <constraint firstAttribute="height" constant="376" id="mYf-3O-ShQ"/>
+                        <constraint firstItem="4ju-Tz-Ooq" firstAttribute="top" secondItem="0Oi-E4-dg7" secondAttribute="top" constant="46" id="mxS-O2-WfS"/>
+                        <constraint firstAttribute="trailing" secondItem="IQa-37-YJo" secondAttribute="trailing" constant="8" id="uI4-Wf-OqF"/>
+                        <constraint firstAttribute="trailing" secondItem="4ju-Tz-Ooq" secondAttribute="trailing" constant="8" id="vJn-RC-eWn"/>
+                        <constraint firstAttribute="trailing" secondItem="t6Q-g5-aQs" secondAttribute="trailing" constant="8" id="ymt-3i-sAD"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="0Oi-E4-dg7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="8Pr-K4-idt"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="0Oi-E4-dg7" secondAttribute="trailing" constant="20" id="WlZ-h5-zrz"/>
+                <constraint firstItem="0Oi-E4-dg7" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="ukj-CK-DTp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="selectedLabel" destination="IQa-37-YJo" id="Ru9-j3-HsM"/>
+                <outlet property="slider" destination="t6Q-g5-aQs" id="IpD-lR-Qm4"/>
+            </connections>
+            <point key="canvasLocation" x="160.86956521739131" y="-78.348214285714278"/>
+        </view>
+    </objects>
+</document>

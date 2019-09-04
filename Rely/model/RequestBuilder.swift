@@ -14,6 +14,7 @@ class RequestBuilder {
     var originator: Int!
     var totalAmount: Double?
     var reserveAmount: Double?
+    var feeAmount: Double?
     var description: String?
     
     init(originator: Int) {

@@ -2,8 +2,8 @@
 //  NotificationModel.swift
 //  Rely
 //
-//  Created by kavii on 6/18/19.
-//  Copyright © 2019 kavii. All rights reserved.
+//  Created by Ryan Auger on 6/18/19.
+//  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 
 import Foundation

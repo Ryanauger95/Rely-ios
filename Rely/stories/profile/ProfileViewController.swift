@@ -50,8 +50,7 @@ class ProfileViewController: ImagePickerViewController {
             guard
                 code == 200,
                 let data = json?["data"] as? [String: Any],
-                let activeBalance = data["active_balance"] as? Int,
-                let pendingBalance = data["pending_balance"] as? Int
+                let activeBalance = data["active_balance"] as? Int
                 else {return}
             self.accountBalanceLabel.text = String(format: "$%.2f", Double(activeBalance)/100)
             

@@ -64,15 +64,18 @@ extension UIViewController {
         "Successfully submitted!" : "An error occured, please try again later."
         self.alert(title: title, message: message, completion: completion)
     }
-    func alert(title: String, message: String, completion: VoidFunc?) {
-        self.alert(title: title, message: message, completion: {(UIAlertAction) in
+    func alert(title: String, message: String, cancelEnabled: Bool = false, completion: VoidFunc?) {
+        self.alert(title: title, message: message, cancelEnabled: cancelEnabled, completion: {(UIAlertAction) in
             guard let completion = completion else {return}
             completion()
         })
     }
-    func alert(title: String, message: String, completion: @escaping AlertFunc) {
+    func alert(title: String, message: String, cancelEnabled: Bool, completion: @escaping AlertFunc) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.default, handler: completion))
+        if (cancelEnabled){
+            alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: nil))
+        }
         self.present(alert, animated: true, completion: nil)
     }
 }

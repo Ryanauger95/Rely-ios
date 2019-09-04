@@ -244,15 +244,6 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         </variation>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$874.23" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thz-Pp-dYq">
-                                        <rect key="frame" x="290.5" y="34" width="74.5" height="20.5"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <variation key="heightClass=regular-widthClass=regular">
-                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                        </variation>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bG7-5e-UcQ">
                                         <rect key="frame" x="45" y="161.5" width="30" height="30"/>
                                         <constraints>
@@ -262,16 +253,41 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" image="redcancel"/>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+$874.23" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thz-Pp-dYq">
+                                        <rect key="frame" x="266" y="35" width="74.5" height="20.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20.5" id="9eP-S9-crc"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <variation key="heightClass=regular-widthClass=regular">
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        </variation>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B56-SP-wdK">
+                                        <rect key="frame" x="346" y="35" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="Khk-sl-5T3"/>
+                                            <constraint firstAttribute="height" constant="20" id="Y3V-HG-oIr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" image="ABOUT"/>
+                                        <connections>
+                                            <action selector="totalInfo:" destination="h2L-Ns-w5G" eventType="touchUpInside" id="mi9-3p-Ttw"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Thz-Pp-dYq" secondAttribute="trailing" constant="9" id="7rg-FS-MxO"/>
+                                    <constraint firstItem="B56-SP-wdK" firstAttribute="leading" secondItem="Thz-Pp-dYq" secondAttribute="trailing" constant="5.5" id="2oT-KG-hKJ"/>
                                     <constraint firstItem="Rql-bg-sNM" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="71" id="Agm-J9-nFg"/>
                                     <constraint firstItem="uOv-Eu-2Wv" firstAttribute="top" secondItem="hvX-ka-eMa" secondAttribute="top" constant="18" id="BwZ-Qo-PY6"/>
                                     <constraint firstAttribute="trailing" secondItem="aj8-Ji-uCS" secondAttribute="trailing" constant="33" id="EGz-Ub-gfD"/>
                                     <constraint firstItem="9oJ-O1-b5o" firstAttribute="top" secondItem="uOv-Eu-2Wv" secondAttribute="bottom" constant="20" id="HDq-nR-5O7"/>
                                     <constraint firstItem="9oJ-O1-b5o" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="15" id="I1R-xq-WL4"/>
                                     <constraint firstAttribute="trailing" secondItem="AbD-mz-v2P" secondAttribute="trailing" constant="15" id="I21-5W-eDh"/>
+                                    <constraint firstItem="B56-SP-wdK" firstAttribute="top" secondItem="hvX-ka-eMa" secondAttribute="top" constant="35" id="PGT-Wd-il5"/>
                                     <constraint firstItem="aj8-Ji-uCS" firstAttribute="top" secondItem="e3l-M6-fc4" secondAttribute="bottom" constant="5.5" id="RT7-Vf-kLN"/>
                                     <constraint firstItem="AbD-mz-v2P" firstAttribute="top" secondItem="9oJ-O1-b5o" secondAttribute="bottom" constant="20.5" id="Shx-hm-px9"/>
                                     <constraint firstAttribute="trailing" secondItem="e3l-M6-fc4" secondAttribute="trailing" constant="48" id="ZlY-qV-kKL"/>
@@ -279,14 +295,15 @@
                                     <constraint firstItem="AbD-mz-v2P" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="15" id="bDF-LC-cvM"/>
                                     <constraint firstItem="Rql-bg-sNM" firstAttribute="top" secondItem="hvX-ka-eMa" secondAttribute="top" constant="35" id="bfc-go-7n2"/>
                                     <constraint firstItem="bG7-5e-UcQ" firstAttribute="top" secondItem="AbD-mz-v2P" secondAttribute="bottom" constant="25.5" id="cld-xb-97L"/>
+                                    <constraint firstItem="Thz-Pp-dYq" firstAttribute="top" secondItem="hvX-ka-eMa" secondAttribute="top" constant="35" id="e4S-cP-EwZ"/>
                                     <constraint firstItem="2rP-9L-sn2" firstAttribute="top" secondItem="lVq-uG-Pg1" secondAttribute="bottom" constant="5.5" id="g2E-AU-umG"/>
                                     <constraint firstItem="lVq-uG-Pg1" firstAttribute="centerX" secondItem="hvX-ka-eMa" secondAttribute="centerX" id="oJc-JZ-WQ4"/>
+                                    <constraint firstAttribute="trailing" secondItem="B56-SP-wdK" secondAttribute="trailing" constant="8" id="otL-13-AY7"/>
                                     <constraint firstAttribute="height" constant="224" id="qLp-b9-dd5"/>
                                     <constraint firstItem="sKw-z6-Mq4" firstAttribute="top" secondItem="bG7-5e-UcQ" secondAttribute="bottom" constant="5.5" id="qbt-Yu-bNp"/>
                                     <constraint firstItem="bG7-5e-UcQ" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="45" id="s5i-my-zeB"/>
                                     <constraint firstItem="lVq-uG-Pg1" firstAttribute="top" secondItem="AbD-mz-v2P" secondAttribute="bottom" constant="25.5" id="sqk-7h-KEA"/>
                                     <constraint firstItem="2rP-9L-sn2" firstAttribute="centerX" secondItem="hvX-ka-eMa" secondAttribute="centerX" id="tCb-aW-NTA"/>
-                                    <constraint firstItem="Thz-Pp-dYq" firstAttribute="top" secondItem="hvX-ka-eMa" secondAttribute="top" constant="34" id="vQQ-wj-tvy"/>
                                     <constraint firstItem="sKw-z6-Mq4" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="34" id="yo1-he-bOp"/>
                                     <constraint firstItem="uOv-Eu-2Wv" firstAttribute="leading" secondItem="hvX-ka-eMa" secondAttribute="leading" constant="8" id="zHr-f9-N5a"/>
                                 </constraints>
@@ -732,7 +749,7 @@ to cancel ?</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ivm-xu-3kY">
                                 <rect key="frame" x="25" y="261" width="364" height="374"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reserve" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Sn9-Ht-T0T">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Deposit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="Sn9-Ht-T0T">
                                         <rect key="frame" x="40" y="25" width="284" height="39"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="39" id="DIw-ZR-EN7"/>
@@ -750,7 +767,7 @@ to cancel ?</string>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="uuI-yE-iwq">
                                                 <rect key="frame" x="8" y="8" width="348" height="244"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <string key="text">In case of cancellation by the buyer after a job has been accepted by both parties, the reserve is the amount that the seller of goods/services may keep if he/she chooses. Choose a reserve to protect you from early cancellations and/or fixed costs that you cannot recoup</string>
+                                                <string key="text">In case of cancellation by the buyer after a job has been accepted by both parties, or in the case that the buyer disputes the quality of the work, the deposit is the amount that the seller of goods/services may keep if he/she chooses. Choose a reserve to protect you from early cancellations and/or fixed costs that you cannot recoup</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>

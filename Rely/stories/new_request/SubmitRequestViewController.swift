@@ -28,6 +28,7 @@ class SubmitRequestViewController: UIViewController, UIPopoverPresentationContro
             let reserve = self.requestBuilder.reserveAmount,
             let payerFirstName = requestBuilder.payer?.firstName,
             let payerLastName = requestBuilder.payer?.lastName,
+            let fee = self.requestBuilder.feeAmount,
             let _user = User(defaults: true)
             else { return }
         self.user = _user
@@ -40,12 +41,11 @@ class SubmitRequestViewController: UIViewController, UIPopoverPresentationContro
         self.userNameBtn.setTitle(payerName, for: .normal)
         self.amountTxt.text = "$\(amount)"
         self.reserveTxt.text = "$\(reserve)"
+        self.feeLabel.text = "$\(fee)"
         
         self.hideKeyboardWhenTappedAround()
         self.tabBarController?.tabBar.isHidden = true
         
-        // Get the fee
-        checkAndUpdateFee(requestBuilder: self.requestBuilder)
     }
     
     // If we send, then we are the payer
@@ -54,6 +54,12 @@ class SubmitRequestViewController: UIViewController, UIPopoverPresentationContro
             requestBuilder.collector = requestBuilder.payer
             requestBuilder.payer = user
         }
+        guard let request = Request(requestBuilder: requestBuilder) else {
+            return
+        }
+        self.alert(title: "Confirm", message: "You are creating a transaction to pay $\(request.totalAmount!) to \(request.collector.firstName!). A $\(request.feeAmount!) fee will be added to the transaction. We will charge $\(request.payerTotal!) once the job is accepted, and place $\(request.totalAmount!) into holding ", cancelEnabled: true, completion: {
+            self.checkWalletAndSubmitTxn()
+        })
         checkWalletAndSubmitTxn()
     }
     
@@ -63,7 +69,12 @@ class SubmitRequestViewController: UIViewController, UIPopoverPresentationContro
             requestBuilder.payer = requestBuilder.collector
             requestBuilder.collector = user
         }
-        checkWalletAndSubmitTxn()
+        guard let request = Request(requestBuilder: requestBuilder) else {
+            return
+        }
+        self.alert(title: "Confirm", message: "You are requesting $\(request.payerTotal!) from \(request.payer.firstName!). A $\(request.feeAmount!) fee will be deducted once the job is accepted. Upon approval of the job, you will receive $\(request.collectorTotal!)", cancelEnabled: true, completion: {
+        self.checkWalletAndSubmitTxn()
+        })
     }
     
     
@@ -111,24 +122,9 @@ class SubmitRequestViewController: UIViewController, UIPopoverPresentationContro
     }
     
     
-    func checkAndUpdateFee(requestBuilder: RequestBuilder) {
-        requestBuilder.description = ""
-        guard let request = Request(requestBuilder: requestBuilder) else {
-            return
-        }
-        request.checkFee(){ (json, code, _) in
-            guard
-                code == 200,
-                let data = json?["data"] as? [String: Any],
-                let fee = data["fee"] as? Int
-                else {
-                    self.alert(title: "Unable to determine fee!", message: "", completion: nil)
-                    return
-            }
-            self.feeLabel.text = minorToMajorCurrencyStr(minor: fee)
-        }
-    }
+
     
+
     func submitTxn(request: Request) {
         request.submit(){ (json, code, error) in
             if (code == 200){

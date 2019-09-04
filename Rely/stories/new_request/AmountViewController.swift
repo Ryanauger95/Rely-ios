@@ -31,16 +31,32 @@ class AmountViewController: UIViewController {
     }
     
     @IBAction func continueBtnAction(_ sender: Any) {
-        let nextVC = self.storyboard!.instantiateViewController(withIdentifier: "SubmitRequestViewController") as! SubmitRequestViewController
-        nextVC.modalPresentationStyle = .overFullScreen
-
+        
         guard
             let total = Double(self.totalAmountTxtFld.text!),
             let reserve = (self.reserveAmountTxtFld.text == "") ? 0.0 : Double(self.reserveAmountTxtFld.text ?? "0") else {return}
-        requestBuilder.totalAmount = total
-        requestBuilder.reserveAmount = reserve
-        nextVC.requestBuilder = requestBuilder
+        self.requestBuilder.totalAmount = total
+        self.requestBuilder.reserveAmount = reserve
+        self.requestBuilder.description = ""
+        
+        // Get the Fee
+        self.requestBuilder.feeAmount = 0
+        guard let request = Request(requestBuilder: requestBuilder) else {
+            return
+        }
+        request.checkFee(){ (fee) in
+            guard
+                let fee = fee
+                else {
+                    self.alert(title: "Unable to calculate fee!", message: "", completion: nil)
+                    return
+            }
+        self.requestBuilder.feeAmount = Double(fee)/100
+        let nextVC = self.storyboard!.instantiateViewController(withIdentifier: "SubmitRequestViewController") as! SubmitRequestViewController
+        nextVC.modalPresentationStyle = .overFullScreen
+        nextVC.requestBuilder = self.requestBuilder
         self.navigationController?.pushViewController(nextVC, animated: true)
+        }
     }
     
     @IBAction func reserveInfo(_ sender: Any) {

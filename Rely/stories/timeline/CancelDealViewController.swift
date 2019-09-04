@@ -29,18 +29,12 @@ class CancelDealViewController: UIViewController, UIPickerViewDelegate, UIPicker
         self.pickerView.delegate = self
         self.pickerView.dataSource = self
         
-        //
-        guard let deal = deal else {
-            self.dismiss(animated: true, completion: nil)
-            return
-        }
-        self.reserveLbl.text = self.deal.reserveStr()
+
+        self.reserveLbl.text = self.deal.reserveString()
         
-        
-       //
         self.cancelButton.isEnabled = false
-        switch self.deal.dealState{
         
+        switch self.deal.dealState{
         case .PENDING:
             // Before the deal is accepted by the other party,
             // the reserve is always kept by the payer -- it

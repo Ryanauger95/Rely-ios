@@ -154,7 +154,6 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
         present(linkViewController, animated: true)
     }
     func linkViewController(_ linkViewController: PLKPlaidLinkViewController, didSucceedWithPublicToken publicToken: String, metadata: [String : Any]?) {
-        print("Metadata: ", metadata)
         guard
             let institution = metadata?["institution"] as? [String:Any],
             let institutionName = institution["name"] as? String,

@@ -165,7 +165,7 @@ class TimelineViewController: UIViewController,UITableViewDataSource, UITableVie
         cell.timelineNameLbl.text = "\(firstName) \(lastName)"
         cell.timelineImg.image = UIImage(named: "default_profile")
         cell.timelineDescription.text = "Description: " + ((deal.description == "") ? "No description" : deal.description)
-        cell.timelineAmountLbl.text = ((userRole == .PAYER) ? "-" : "+")  + "$" + deal.amountStr()
+        cell.timelineAmountLbl.text = ((userRole == .PAYER) ? "-" : "+") + "$" + deal.collectorTotalString()
         cell.timelineDayLbl.text = deal.dealState.rawValue
 
         if (deal.dealState == .DISPUTE) {

@@ -2,8 +2,8 @@
 //  UserAuthHandler.swift
 //  Rely
 //
-//  Created by kavii on 4/5/19.
-//  Copyright © 2019 kavii. All rights reserved.
+//  Created by Ryan Auger 6/15/19.
+//  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 
 import Foundation

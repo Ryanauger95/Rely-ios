@@ -2,14 +2,17 @@
 //  DisputeNoHistoryViewController.swift
 //  Rely
 //
-//  Created by kavii on 2/11/19.
-//  Copyright © 2019 kavii. All rights reserved.
+//  Created by Ryan Auger on 2/11/19.
+//  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 
 import UIKit
 
+protocol DisputeProtocol {
+    func dispute(collectorAmount: Int, payerAmount: Int) -> Void
+}
 
-class TransactionDetailViewController: UIViewController {
+class TransactionDetailViewController: UIViewController, DisputeProtocol  {
 
     @IBOutlet weak var reserveLabel: UILabel!
     @IBOutlet weak var stateLbl: UILabel!
@@ -49,8 +52,8 @@ class TransactionDetailViewController: UIViewController {
         
 
         // Set Static Fields
-        self.reserveLabel.text = "$" + self.deal.reserveStr()
-        self.amountLabel.text = "$" + self.deal.amountStr()
+        self.reserveLabel.text = "$" + self.deal.reserveString()
+        self.amountLabel.text = "$" + self.deal.collectorTotalString()
         self.nameLabel.text = self.peer.firstName! + " " + self.peer.lastName!
         self.profilePic.image = self.peer.profileImgBase64?.toUIImage()
         self.descriptionTextView.text = deal.description
@@ -99,11 +102,15 @@ class TransactionDetailViewController: UIViewController {
         case .REVIEW:
             // If under review, the payer can mark as approved
             if userRole == .PAYER {
+                // Set up check/approve button
                 self.stateLbl.text = String(format: "Waiting for you to approve the job", self.peer.firstName!)
                 self.checkLabel.text = "Approve"
                 self.checkButton.imageView?.image = UIImage(named: "check-green")
                 self.checkButton.addTarget(self, action: #selector(self.approveCompletion), for: .touchUpInside)
+                
+                // set up cancel button
                 self.cancelLabel.text = "Dispute"
+                self.cancelButton.addTarget(self, action: #selector(self.disputeButtonPressed), for: .touchUpInside)
                 
             } else {
                 self.stateLbl.text = String(format: "Waiting for \(self.peer.firstName!) to approve the job", self.peer.firstName!)
@@ -179,6 +186,23 @@ class TransactionDetailViewController: UIViewController {
         })
     }
     
+    @objc func disputeButtonPressed() {
+        print("HERE")
+        let disputeView = DisputeSliderView.instantiate(superView: self.view, txn: self.deal, delegate: self)
+        self.view.addSubview(disputeView)
+    }
+    func dispute(collectorAmount: Int, payerAmount: Int) {
+        self.deal.dispute(collectorAmount: collectorAmount, payerAmount: payerAmount){ (success) in
+            if (success) {
+                self.alert(title: "Success", message: "Marked as under dispute", completion: {
+                    self.navigationController?.popViewController(animated: true)
+                })
+                
+            } else {
+                self.alert(title: "Error in dispute!", message: "", completion:nil)
+            }
+        }
+    }
     @objc func cancelButtonPressed() {
         let nextVC = self.storyboard?.instantiateViewController(withIdentifier: "CancelDealViewController") as! CancelDealViewController
         nextVC.modalPresentationStyle = .overCurrentContext
@@ -203,6 +227,10 @@ class TransactionDetailViewController: UIViewController {
         self.present(nextVC, animated: true, completion: nil)
     }
     
+    @IBAction func totalInfo(_ sender: Any) {
+        let view = TotalInformationView.instantiate(superView: self.view, txn: self.deal)
+        self.view.addSubview(view)
+    }
     
 }
 

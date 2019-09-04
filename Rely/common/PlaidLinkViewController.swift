@@ -1,6 +1,6 @@
 //
 //  PlaidLinkVC.swift
-//  RPaperless
+//  Rely
 //
 //  Created by Ryan Auger on 6/11/19.
 //  Copyright © 2019 Ryan Auger. All rights reserved.

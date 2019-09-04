@@ -2,8 +2,8 @@
 //  DealModel.swift
 //  Rely
 //
-//  Created by kavii on 4/24/19.
-//  Copyright © 2019 kavii. All rights reserved.
+//  Created by Ryan Auger on 4/24/19.
+//  Copyright © 2019 Ryan Auger. All rights reserved.
 //
 
 import Foundation
@@ -39,7 +39,10 @@ class TxnModel {
     
     var dealId: Int
     var description: String
-    var amount: Int
+    var total: Int
+    var totalFee: Int
+    var payerTotal: Int
+    var collectorTotal: Int
     var reserve: Int
     var endDate: Date
     var dealState: DEAL_STATE
@@ -51,7 +54,10 @@ class TxnModel {
     init(
         dealId: Int,
         description: String,
-        amount: Int,
+        total: Int,
+        totalFee: Int,
+        payerTotal: Int,
+        collectorTotal: Int,
         reserve: Int,
         endDate: Date,
         dealState: DEAL_STATE,
@@ -63,7 +69,10 @@ class TxnModel {
     {
         self.dealId = dealId
         self.description = description
-        self.amount = amount
+        self.total = total
+        self.totalFee = totalFee
+        self.payerTotal = payerTotal
+        self.collectorTotal = collectorTotal
         self.reserve = reserve
         self.endDate = endDate
         self.dealState = dealState
@@ -78,7 +87,10 @@ class TxnModel {
         guard
             let dealId = data["id"] as? Int,
             let description = data["description"] as? String,
-            let amount = data["amount"] as? Int,
+            let total = data["amount"] as? Int,
+            let totalFee = data["totalFee"] as? Int,
+            let payerTotal = data["payerTotal"] as? Int,
+            let collectorTotal = data["collectorTotal"] as? Int,
             let reserve = data["reserve"] as? Int,
             let dealStateStr = data["deal_state"] as? String,
             let dealState = stringToDealState(dealState: dealStateStr),
@@ -110,7 +122,10 @@ class TxnModel {
         self.init(
             dealId: dealId,
             description: description,
-            amount: amount,
+            total: total,
+            totalFee: totalFee,
+            payerTotal: payerTotal,
+            collectorTotal: collectorTotal,
             reserve: reserve,
             endDate: endDate,
             dealState: dealState,
@@ -121,7 +136,7 @@ class TxnModel {
     }
     
     
-//    {"deal_id":86,"description":"","amount_cost":1,"reserve_cost":1,"period":"5","dealState":"waiting","payer":1,"collector":17,"collector_firstname":"test","collector_lastname":"test","collector_image":null,"payer_firstname":"Kasun","payer_lastname":"Yomal","payer_image":null,"ending_date":"2019-07-06T19:00:08.000Z"}
+//    {"deal_id":86,"description":"","total_cost":1,"reserve_cost":1,"period":"5","dealState":"waiting","payer":1,"collector":17,"collector_firstname":"test","collector_lastname":"test","collector_image":null,"payer_firstname":"Kasun","payer_lastname":"Yomal","payer_image":null,"ending_date":"2019-07-06T19:00:08.000Z"}
     
 }
 func stringToFundState(fundState: String) -> FUND_STATE? {
@@ -165,20 +180,4 @@ func stringToDealState(dealState: String) -> DEAL_STATE? {
     default:
         return nil
     }
-}
-
-func dateFromString(strDate: String) -> Date? {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy'-'MM'-'dd'T'HH':'mm':'ss'.000Z"
-    
-    guard let date = dateFormatter.date(from: strDate) else {return nil}
-    return Date()
-}
-func daysRemaining(dateStart: Date, dateEnd: Date) -> Int? {
-    
-    let calendar = Calendar.current
-    
-    let calStart = calendar.startOfDay(for: dateStart)
-    let calEnd = calendar.startOfDay(for: dateEnd)
-    return calendar.dateComponents([.day], from: calStart, to: calEnd).day
 }

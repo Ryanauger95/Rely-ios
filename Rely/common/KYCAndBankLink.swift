@@ -24,7 +24,7 @@ func performKYCIfNeeded(vc: UIViewController, user: User, additionalBankLink: Bo
                     return
             }
             if (bankLinked == true) {
-                presentKYC(vc: vc, kycRequired: false, completion: completion)
+                completion(true)
             } else {
                 presentKYC(vc: vc, kycRequired: false, completion: completion)
                 // TODO: once complete, run callback

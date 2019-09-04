@@ -52,7 +52,6 @@ class KYCView: UIView {
     }
 
     @objc func dobValueDidChange(sender: UIDatePicker) {
-        print(self.dobTextField.text)
         self.dobTextField.text = sender.date.toString(dateFormat: "YYYY-MM-dd")
     }
     @IBAction func dobEditDidBegin(_ sender: UITextField) {
@@ -63,13 +62,9 @@ class KYCView: UIView {
         datePickerView.minimumDate = Calendar.current.date(from: DateComponents(year: 1900))!
         datePickerView.maximumDate = datePickerView.date
         
-//        Calendar.date
-//        datePickerView.date = DateComponents(year: 2009).date!
-
         sender.inputView = datePickerView
         
         datePickerView.addTarget(self, action: #selector(self.dobValueDidChange), for: UIControl.Event.valueChanged)
-        
     }
 
 }
