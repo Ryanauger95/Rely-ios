@@ -12,8 +12,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KYCView" customModule="reli" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="416" height="430"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="KYCView" customModule="Rely" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="416" height="558"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Zip Code" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JMS-Lv-805">
@@ -77,24 +77,24 @@
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xzu-Ud-kY9">
-                    <rect key="frame" x="35" y="293" width="20" height="20"/>
+                    <rect key="frame" x="35" y="371" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="20" id="Cbb-nV-l5d"/>
-                        <constraint firstAttribute="height" constant="20" id="Ehn-c0-qBa"/>
+                        <constraint firstAttribute="height" constant="20" id="Dvj-KZ-IPR"/>
+                        <constraint firstAttribute="width" constant="20" id="ah0-av-4FT"/>
                     </constraints>
                     <state key="normal" title="Button" image="ABOUT"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Information is stored by our banking partner, never us" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Jj-Wg-bba">
-                    <rect key="frame" x="63" y="293" width="259.5" height="20"/>
+                    <rect key="frame" x="63" y="371" width="345" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="20" id="aIt-Z9-Di1"/>
+                        <constraint firstAttribute="height" constant="20" id="hZR-IU-1e5"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZhY-gv-PgP">
-                    <rect key="frame" x="56" y="349" width="296" height="50"/>
+                    <rect key="frame" x="56" y="427" width="296" height="50"/>
                     <color key="backgroundColor" red="0.40252935890000002" green="0.82898682359999998" blue="0.9764980674" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="uRG-yK-PyW"/>
@@ -106,12 +106,26 @@
                         <action selector="completeRequest:" destination="iN0-l3-epB" eventType="touchUpInside" id="hr5-hO-NBd"/>
                     </connections>
                 </button>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jd5-du-A0A">
+                    <rect key="frame" x="35" y="300" width="200" height="42"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="200" id="IKa-Wp-oBq"/>
+                        <constraint firstAttribute="height" constant="42" id="Y5A-E0-9Yl"/>
+                    </constraints>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <action selector="dobEditDidBegin:" destination="iN0-l3-epB" eventType="editingDidBegin" id="uXJ-bR-zKc"/>
+                    </connections>
+                </textField>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="4Jj-Wg-bba" firstAttribute="leading" secondItem="xzu-Ud-kY9" secondAttribute="trailing" constant="8" id="19S-Vc-1nJ"/>
+                <constraint firstItem="4Jj-Wg-bba" firstAttribute="top" secondItem="jd5-du-A0A" secondAttribute="bottom" constant="29" id="0oP-De-7cy"/>
                 <constraint firstItem="ZhY-gv-PgP" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="56" id="1SC-YC-SHs"/>
-                <constraint firstItem="xzu-Ud-kY9" firstAttribute="top" secondItem="xaF-Xy-haH" secondAttribute="bottom" constant="8" id="7Pd-mh-GAC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="4Jj-Wg-bba" secondAttribute="trailing" constant="8" id="7F0-dl-VJk"/>
+                <constraint firstItem="ZhY-gv-PgP" firstAttribute="top" secondItem="4Jj-Wg-bba" secondAttribute="bottom" constant="36" id="9nk-UX-bBO"/>
                 <constraint firstItem="JMS-Lv-805" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="CMV-Co-6Hf"/>
                 <constraint firstItem="wsH-ok-c7P" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="E1d-hW-vxr"/>
                 <constraint firstItem="qzR-te-dzj" firstAttribute="top" secondItem="wsH-ok-c7P" secondAttribute="bottom" constant="15" id="E6L-Hc-JsU"/>
@@ -119,14 +133,16 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ZhY-gv-PgP" secondAttribute="trailing" constant="64" id="Naw-JK-XoY"/>
                 <constraint firstItem="xaF-Xy-haH" firstAttribute="top" secondItem="JMS-Lv-805" secondAttribute="bottom" constant="15" id="Vy3-jK-FDZ"/>
                 <constraint firstItem="YYs-34-h3Z" firstAttribute="top" secondItem="wsH-ok-c7P" secondAttribute="bottom" constant="15" id="Xga-lJ-6y9"/>
-                <constraint firstItem="xzu-Ud-kY9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="ZQ0-qa-iE3"/>
-                <constraint firstItem="4Jj-Wg-bba" firstAttribute="top" secondItem="xaF-Xy-haH" secondAttribute="bottom" constant="8" id="bYj-vd-PAL"/>
+                <constraint firstItem="xzu-Ud-kY9" firstAttribute="top" secondItem="jd5-du-A0A" secondAttribute="bottom" constant="29" id="afD-l9-Qrw"/>
+                <constraint firstItem="4Jj-Wg-bba" firstAttribute="leading" secondItem="xzu-Ud-kY9" secondAttribute="trailing" constant="8" id="c1c-CF-5HR"/>
                 <constraint firstItem="ZWg-3x-frP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="15" id="cxT-RM-gSc"/>
-                <constraint firstItem="ZhY-gv-PgP" firstAttribute="top" secondItem="4Jj-Wg-bba" secondAttribute="bottom" constant="36" id="eRI-0P-5J0"/>
                 <constraint firstItem="wsH-ok-c7P" firstAttribute="top" secondItem="ZWg-3x-frP" secondAttribute="bottom" constant="15" id="h7e-Ad-Mr2"/>
                 <constraint firstItem="YYs-34-h3Z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="nHM-Ak-4IV"/>
+                <constraint firstItem="xzu-Ud-kY9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="nnx-7h-1gN"/>
                 <constraint firstItem="JMS-Lv-805" firstAttribute="top" secondItem="YYs-34-h3Z" secondAttribute="bottom" constant="15" id="tm6-e0-A0i"/>
                 <constraint firstItem="qzR-te-dzj" firstAttribute="leading" secondItem="YYs-34-h3Z" secondAttribute="trailing" constant="37" id="trN-Pc-2V2"/>
+                <constraint firstItem="jd5-du-A0A" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="uZN-KB-GDr"/>
+                <constraint firstItem="jd5-du-A0A" firstAttribute="top" secondItem="xaF-Xy-haH" secondAttribute="bottom" constant="15" id="xOo-yV-xIU"/>
                 <constraint firstItem="xaF-Xy-haH" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="35" id="zzg-mS-KFX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -136,11 +152,12 @@
                 <outlet property="addressTwoTextField" destination="wsH-ok-c7P" id="95p-V9-8Fa"/>
                 <outlet property="cityTextField" destination="YYs-34-h3Z" id="oYK-aB-Fsq"/>
                 <outlet property="completeButton" destination="ZhY-gv-PgP" id="zVY-xe-enx"/>
+                <outlet property="dobTextField" destination="jd5-du-A0A" id="lcB-5u-isW"/>
                 <outlet property="ssnTextField" destination="xaF-Xy-haH" id="bk6-ch-M85"/>
                 <outlet property="stateTextField" destination="qzR-te-dzj" id="Zq0-S5-gQC"/>
                 <outlet property="zipcodeTextField" destination="JMS-Lv-805" id="ORa-rZ-52a"/>
             </connections>
-            <point key="canvasLocation" x="117.39130434782609" y="-174.10714285714286"/>
+            <point key="canvasLocation" x="152" y="-131"/>
         </view>
     </objects>
     <resources>

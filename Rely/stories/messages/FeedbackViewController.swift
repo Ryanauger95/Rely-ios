@@ -33,14 +33,15 @@ class FeedbackViewController: UIViewController, UITextViewDelegate {
         self.feedbackTextView.setPadding(top:5, left: 5)
 
         // Set tab bar icon
-        self.tabBarItem.selectedImage =
-            UIImage(named: "feedback color")?.withRenderingMode(.alwaysOriginal)
+//        self.tabBarItem.selectedImage =
+//            UIImage(named: "feedback color")?.withRenderingMode(.alwaysOriginal)
         self.tabBarItem.image = UIImage(named: "feedback")?.withRenderingMode(.alwaysOriginal)
         self.tabBarItem.title = ""
 
         // Do any additional setup after loading the view.
         user = User(defaults: true)
         
+
     }
     
     @IBAction func submitFeedback(_ sender: Any) {

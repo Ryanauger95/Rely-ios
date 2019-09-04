@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftyJSON
 
 enum cancelType : Int{
     case transferReserve = 0
@@ -27,7 +26,7 @@ class Txn : TxnModel{
     }
 
     func amountStr() -> String {
-        return String(format: "%.2f", Double(self.reserve)/100)
+        return String(format: "%.2f", Double(self.amount)/100)
     }
     func reserveStr() -> String {
         return String(format:"%.2f", Double(self.reserve)/100)

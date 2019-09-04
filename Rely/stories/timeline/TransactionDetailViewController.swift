@@ -49,9 +49,8 @@ class TransactionDetailViewController: UIViewController {
         
 
         // Set Static Fields
-        self.reserveLabel.text =
-            String(format: "$%d", deal.reserve)
-        self.amountLabel.text = String(format: "$%d", deal.amount)
+        self.reserveLabel.text = "$" + self.deal.reserveStr()
+        self.amountLabel.text = "$" + self.deal.amountStr()
         self.nameLabel.text = self.peer.firstName! + " " + self.peer.lastName!
         self.profilePic.image = self.peer.profileImgBase64?.toUIImage()
         self.descriptionTextView.text = deal.description
@@ -85,11 +84,6 @@ class TransactionDetailViewController: UIViewController {
             break
         case .PROGRESS:
             // If in progress, the collector can mark as complete
-            if (self.deal.fundState != FUND_STATE.FEE_COMPLETE){
-                self.stateLbl.text = String(format: "Waiting for funds to transfer into holding", self.peer.firstName!)
-                self.checkButton.imageView?.image = UIImage(named: "check-gray")
-                break;
-            }
             self.cancelButton.addTarget(self, action: #selector(self.cancelButtonPressed), for: .touchUpInside)
             if userRole == .COLLECTOR {
                 self.stateLbl.text = String(format: "Waiting for you to mark the job complete", self.peer.firstName!)

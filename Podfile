@@ -6,10 +6,9 @@ target 'Rely' do
   use_frameworks!
 pod 'CheckBox'
 pod 'Alamofire', '~> 4.8.1'
-pod 'SwiftyJSON', '~> 4.0'
 pod 'FlagPhoneNumber'
-pod 'Socket.IO-Client-Swift', '~> 15.1.0'
 pod 'Plaid'
+pod 'Intercom'
 
 
 # Pods for Rely

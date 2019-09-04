@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import SwiftyJSON
+import Intercom
 
 class User: UserModel{
 
@@ -27,13 +27,16 @@ class User: UserModel{
             guard
                 code == 200,
                 let json = json,
-                let userDetails = json["data"] as? [String: Any]
+                let userDetails = json["data"] as? [String: Any],
+                let loggedUser = User(data: userDetails)
                 else {
                     completion(nil, .INVALID_USERPASS)
                     return
             }
-            let loggedUser = User(data: userDetails)
-            loggedUser?.token = token
+            loggedUser.token = token
+            
+            // MARK: Intercom login
+            Intercom.registerUser(withUserId: String(loggedUser.userId))
             completion(loggedUser, nil)
         })
     }
@@ -164,6 +167,32 @@ class User: UserModel{
             ], completion: completion)
     }
 
+    // Search
+    static func searchUsers(queryString: String, completion: @escaping ([User]?) -> Void){
+        let path = "/search?user_query=" + queryString
+        apiGET(endpoint: apiEndpoint.User, path: path){ (json, code, error) in
+            guard
+                code == 200,
+                let data = (json?["data"] as? [String: Any])?["users"] as? [[String: Any]]
+                else {
+                    completion(nil)
+                    return
+            }
+            var userList: [User] = []
+            for userData in data {
+                guard
+                    let id = userData["id"] as? Int,
+                    let firstName = userData["first_name"] as? String,
+                    let lastName = userData["last_name"] as? String
+                    else {
+                    continue
+                }
+                let newUser = User(userId: id, firstName: firstName, lastName: lastName, profileImgUrl: userData["profile_img_url"] as? String)
+                userList.append(newUser)
+            }
+           completion(userList)
+        }
+    }
 
     ////////////////////////////////////
     /// get all txns for a user
@@ -190,6 +219,7 @@ class User: UserModel{
         state: String,
         zip: String,
         ssn: String,
+        dob: String,
         completion: @escaping WebServiceResponse) {
         
         let path = String(format: "/%d/wallet", self.userId)
@@ -200,7 +230,8 @@ class User: UserModel{
                 "city": city,
                 "state": state,
                 "zip": zip,
-                "ssn": ssn
+                "ssn": ssn,
+                "dob": dob
             ], completion: completion)
     }
     

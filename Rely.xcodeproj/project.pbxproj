@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C5C4C58231C13C0005DD8D8 /* KYCAndBankLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C4C57231C13C0005DD8D8 /* KYCAndBankLink.swift */; };
+		0C5C4C5A231F196F005DD8D8 /* DateOfBirth.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5C4C59231F196F005DD8D8 /* DateOfBirth.xib */; };
+		0C5C4C5C231F1A19005DD8D8 /* DateOfBirth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5C4C5B231F1A19005DD8D8 /* DateOfBirth.swift */; };
 		0CC4D5FE2318129000497D21 /* Rely.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D5FC2318129000497D21 /* Rely.xcdatamodeld */; };
 		0CC4D60E2318129100497D21 /* RelyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D60D2318129100497D21 /* RelyTests.swift */; };
 		0CC4D6192318129100497D21 /* RelyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D6182318129100497D21 /* RelyUITests.swift */; };
@@ -31,7 +33,6 @@
 		0CC4D653231812D500497D21 /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D647231812D500497D21 /* Notification.swift */; };
 		0CC4D654231812D500497D21 /* Txn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D648231812D500497D21 /* Txn.swift */; };
 		0CC4D655231812D500497D21 /* MessagesApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D649231812D500497D21 /* MessagesApi.swift */; };
-		0CC4D656231812D500497D21 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D64A231812D500497D21 /* Search.swift */; };
 		0CC4D676231812DF00497D21 /* UIButton+FacebookLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D658231812DF00497D21 /* UIButton+FacebookLogin.swift */; };
 		0CC4D677231812DF00497D21 /* UITableView+Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D659231812DF00497D21 /* UITableView+Header.swift */; };
 		0CC4D678231812DF00497D21 /* String+sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D65A231812DF00497D21 /* String+sha256.swift */; };
@@ -132,6 +133,8 @@
 
 /* Begin PBXFileReference section */
 		0C5C4C57231C13C0005DD8D8 /* KYCAndBankLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KYCAndBankLink.swift; sourceTree = "<group>"; };
+		0C5C4C59231F196F005DD8D8 /* DateOfBirth.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DateOfBirth.xib; sourceTree = "<group>"; };
+		0C5C4C5B231F1A19005DD8D8 /* DateOfBirth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateOfBirth.swift; sourceTree = "<group>"; };
 		0CC4D5F22318129000497D21 /* Rely.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rely.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0CC4D5FD2318129000497D21 /* Rely.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rely.xcdatamodel; sourceTree = "<group>"; };
 		0CC4D6042318129100497D21 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -164,7 +167,6 @@
 		0CC4D647231812D500497D21 /* Notification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		0CC4D648231812D500497D21 /* Txn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Txn.swift; sourceTree = "<group>"; };
 		0CC4D649231812D500497D21 /* MessagesApi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesApi.swift; sourceTree = "<group>"; };
-		0CC4D64A231812D500497D21 /* Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		0CC4D658231812DF00497D21 /* UIButton+FacebookLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+FacebookLogin.swift"; sourceTree = "<group>"; };
 		0CC4D659231812DF00497D21 /* UITableView+Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+Header.swift"; sourceTree = "<group>"; };
 		0CC4D65A231812DF00497D21 /* String+sha256.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+sha256.swift"; sourceTree = "<group>"; };
@@ -369,7 +371,6 @@
 				0CC4D647231812D500497D21 /* Notification.swift */,
 				0CC4D648231812D500497D21 /* Txn.swift */,
 				0CC4D649231812D500497D21 /* MessagesApi.swift */,
-				0CC4D64A231812D500497D21 /* Search.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -466,10 +467,12 @@
 			isa = PBXGroup;
 			children = (
 				0CC4D6AF231812EE00497D21 /* KYC.xib */,
+				0C5C4C59231F196F005DD8D8 /* DateOfBirth.xib */,
 				0CC4D6B0231812EE00497D21 /* KYC.storyboard */,
 				0CC4D6B1231812EE00497D21 /* KYCViewController.swift */,
 				0CC4D6B2231812EE00497D21 /* KYCView.swift */,
 				0CC4D6B3231812EE00497D21 /* KYCInfoViewController.swift */,
+				0C5C4C5B231F1A19005DD8D8 /* DateOfBirth.swift */,
 			);
 			path = KYC;
 			sourceTree = "<group>";
@@ -577,6 +580,7 @@
 				0CC4D5EF2318129000497D21 /* Frameworks */,
 				0CC4D5F02318129000497D21 /* Resources */,
 				EE05F3D7646BAB46B33DFE0C /* [CP] Embed Pods Frameworks */,
+				B218BDD03728EAF66A7AD95D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -679,6 +683,7 @@
 				0CC4D6F2231812EE00497D21 /* Main.storyboard in Resources */,
 				0CC4D6DD231812EE00497D21 /* Messages.storyboard in Resources */,
 				0CC4D6F9231812EE00497D21 /* Timeline.storyboard in Resources */,
+				0C5C4C5A231F196F005DD8D8 /* DateOfBirth.xib in Resources */,
 				0CC4D6DA231812EE00497D21 /* Settings.storyboard in Resources */,
 				0CC4D6EC231812EE00497D21 /* NewRequest.storyboard in Resources */,
 				0CC4D6E0231812EE00497D21 /* KYC.storyboard in Resources */,
@@ -750,6 +755,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B218BDD03728EAF66A7AD95D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Rely/Pods-Rely-resources.sh",
+				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/Intercom.bundle",
+				"${PODS_ROOT}/Intercom/Intercom/Intercom.framework/Versions/A/Resources/IntercomTranslations.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Intercom.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IntercomTranslations.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Rely/Pods-Rely-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C6C7CD9FD693BA65D058B0CA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -785,9 +814,6 @@
 				"${BUILT_PRODUCTS_DIR}/CheckBox/CheckBox.framework",
 				"${BUILT_PRODUCTS_DIR}/FlagPhoneNumber/FlagPhoneNumber.framework",
 				"${PODS_ROOT}/Plaid/LinkKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -797,9 +823,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CheckBox.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlagPhoneNumber.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LinkKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -850,7 +873,6 @@
 				0CC4D6E6231812EE00497D21 /* MobileVerificationViewController.swift in Sources */,
 				0CC4D64C231812D500497D21 /* UserAuthHandler.swift in Sources */,
 				0CC4D638231812C700497D21 /* DLRadioButton.m in Sources */,
-				0CC4D656231812D500497D21 /* Search.swift in Sources */,
 				0CC4D686231812DF00497D21 /* UITextField+BottomBorder.swift in Sources */,
 				0CC4D68F231812DF00497D21 /* UIView+EsgroStyle.swift in Sources */,
 				0CC4D6EE231812EE00497D21 /* AmountViewController.swift in Sources */,
@@ -880,6 +902,7 @@
 				0CC4D68C231812DF00497D21 /* CGPoint+Distance.swift in Sources */,
 				0CC4D64B231812D500497D21 /* RequestWrapper.swift in Sources */,
 				0CC4D700231812EE00497D21 /* SignInViewController.swift in Sources */,
+				0C5C4C5C231F1A19005DD8D8 /* DateOfBirth.swift in Sources */,
 				0CC4D5FE2318129000497D21 /* Rely.xcdatamodeld in Sources */,
 				0CC4D64D231812D500497D21 /* Files.swift in Sources */,
 				0CC4D688231812DF00497D21 /* UIViewController+HideKeyboard.swift in Sources */,

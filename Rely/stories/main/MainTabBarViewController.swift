@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Intercom
 
 class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
@@ -21,8 +22,18 @@ class MainTabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     //MARK: UITabbar Delegate
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if (viewController.restorationIdentifier == "Intercom"){
+//            Intercom.presentHelpCenter()
+            Intercom.presentMessenger()
+            return false
+        }
         return true
     }
 
+    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+        return
+    }
 
+
+//    func tabbar
 }

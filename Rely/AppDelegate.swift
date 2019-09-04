@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Intercom
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         UIFont.overrideInitialize()
+        Intercom.setApiKey("ios_sdk-9ae6ba27f7543503590bbe5df74c3787fbb4db49", forAppId:"k2icp3lg")
         return true
     }
 

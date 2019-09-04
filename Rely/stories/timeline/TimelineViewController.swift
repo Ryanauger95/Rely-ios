@@ -8,7 +8,6 @@
 
 import Foundation
 import UIKit
-import SocketIO
 
 enum SECTION: Int{
     case ACTIVE_SECTION;
@@ -17,15 +16,12 @@ enum SECTION: Int{
 
 class TimelineViewController: UIViewController,UITableViewDataSource, UITableViewDelegate {
 
-    @IBOutlet weak var searchBarTxt: UITextField!
     @IBOutlet weak var table: UITableView!
 
-    var search = Search()
     var user : User!
     
     var activeTxns : [Txn] = []
     var inactiveTxns: [Txn] = []
-    var searchConnected : Bool = false
     var hasAppearedOnce = false
     
     override func viewDidAppear(_ animated: Bool) {
@@ -65,43 +61,14 @@ class TimelineViewController: UIViewController,UITableViewDataSource, UITableVie
 
         
 
-        self.setupSearchBar()
-        self.setupSearch()
     }
     
-    
-    //////////////////////////////////////////////////
-    // UI Setup
-    //////////////////////////////////////////////////
-    func setupSearchBar() {
-        let color = UIColor(rgb: 0xADB3C0)
-        searchBarTxt.attributedPlaceholder = NSAttributedString(string: "Name, Email, or Phone", attributes: [NSAttributedString.Key.foregroundColor: color])
-        searchBarTxt.backgroundColor = UIColor.white
-        searchBarTxt.layer.cornerRadius = searchBarTxt.frame.height/2
-        searchBarTxt.setPadding(left: 20, right: 0)
-    }
     
     //////////////////////////////////////////////////
     // Load data from the backend
     //////////////////////////////////////////////////
-    // Load Data w/ Search Bar
-    func setupSearch() {
-        self.search.setConnectCallback(callback: self.setSearchConnected)
-        self.search.setDealSearchCallback(callback: self.loadTableDealSearchResult)
-        self.search.connect()
-    }
-    
-    func setSearchConnected(data: [Any], error: SocketAckEmitter) -> Void {
-        NSLog("Search bar connected")
-        self.searchConnected = true
-    }
-    @IBAction func searchBarDidChange(_ sender: Any) {
-        if !searchConnected {
-            return
-        }
-        self.search.start_deal_search(userID: self.user!.userId, term: self.searchBarTxt.text ?? "")
-    }
-    
+
+
     func addTxnToTable(txn: Txn){
         if txn.isActive() {
             self.activeTxns.append(txn)
@@ -136,23 +103,7 @@ class TimelineViewController: UIViewController,UITableViewDataSource, UITableVie
         }
     }
     
-    func loadTableDealSearchResult(data: [Any], error: SocketAckEmitter) -> () {
-        guard let json = data as?  [String: Any],
-            let userList = json["deals"] as? [[String: Any]] else {
-                if self.searchBarTxt.text == "" {
-                    self.loadData(completion: nil)
-                }
-                return
-        }
-        
-        self.clearTable()
-        for data in userList {
-            guard let txn = Txn(data: data) else { continue }
-            self.addTxnToTable(txn: txn)
-            self.table.reloadData()
-        }
-    }
-    
+
     //////////////////////////////////////////////////
     // TableView setup
     //////////////////////////////////////////////////
@@ -214,7 +165,7 @@ class TimelineViewController: UIViewController,UITableViewDataSource, UITableVie
         cell.timelineNameLbl.text = "\(firstName) \(lastName)"
         cell.timelineImg.image = UIImage(named: "default_profile")
         cell.timelineDescription.text = "Description: " + ((deal.description == "") ? "No description" : deal.description)
-        cell.timelineAmountLbl.text = ((userRole == .PAYER) ? "-" : "+")  + String(format: "$%d", deal.amount)
+        cell.timelineAmountLbl.text = ((userRole == .PAYER) ? "-" : "+")  + "$" + deal.amountStr()
         cell.timelineDayLbl.text = deal.dealState.rawValue
 
         if (deal.dealState == .DISPUTE) {

@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SocketIO
 
 class NewRequestViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
     
@@ -17,10 +16,8 @@ class NewRequestViewController: UIViewController, UITableViewDataSource, UITable
     
     var requestBuilderProfileList : [User] = []
     
-    var searchConnected : Bool = false
     var processingIndicator: UIActivityIndicatorView!
     
-    var search = Search()
     var requestBuilder: RequestBuilder!
     var user : User!
     
@@ -45,11 +42,6 @@ class NewRequestViewController: UIViewController, UITableViewDataSource, UITable
         self.table.addTableHeader(header: "Top People")
         self.setupSearchBar()
 
-        
-        // Connect via socket.io to backend
-        // and register to load table data
-        self.setupSearch()
-        
         // Start the activity indicator
         addActivityIndicator()
         processingIndicator.hidesWhenStopped = true
@@ -79,33 +71,23 @@ class NewRequestViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     
-    func setupSearch() {
-        self.search.setConnectCallback(callback: self.setSearchConnected)
-        self.search.setUserSearchCallback(callback: self.loadTableUserSearchResult)
-        self.search.connect()
-    }
     
-    func setSearchConnected(data: [Any], error: SocketAckEmitter) -> Void {
-        NSLog("Search bar connected")
-        self.searchConnected = true
-    }
 
 
-    @IBAction func searchBarDidChange(_ sender: Any) {
-        if !searchConnected {return}
-        self.search.start_user_search(userID: user!.userId, term: self.searchBarTxt.text ?? "" )
-    }
-
-    func loadTableUserSearchResult(data: Any, error: SocketAckEmitter) -> Void {
-        guard let json = data as? [String:Any],
-            let userList = json["data"] as? [[String:Any]]
-            else {
-                if self.searchBarTxt.text == "" {
-                    self.loadData()
-                }
-                return
+    @IBAction func searchBarDidChange(_ sender: UITextField) {
+        guard let query = sender.text else {return}
+        if query == "" {
+            self.loadData()
+        } else {
+            User.searchUsers(queryString: query){ (users) in
+                guard let users = users else {return}
+                self.refillTableUserList(userList: users)
+            }
+            self.table.reloadData()
         }
-        refillTableUserList(userList: userList)
+    }
+
+    func loadTableUserSearchResult(data: Any) -> Void {
         self.processingIndicator.stopAnimating()
     }
     
@@ -120,6 +102,14 @@ class NewRequestViewController: UIViewController, UITableViewDataSource, UITable
             else {return}
             
             self.refillTableUserList(userList: userList)
+        }
+    }
+    func refillTableUserList(userList: [User]) {
+        self.requestBuilderProfileList.removeAll()
+        for user in userList {
+            if user.userId != self.user.userId {
+                self.requestBuilderProfileList.append(user)
+            }
         }
     }
     func refillTableUserList(userList: [[String:Any]]) {

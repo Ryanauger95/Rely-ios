@@ -10,7 +10,7 @@ import UIKit
 import LinkKit
 
 protocol RequestProtocol {
-    func registerWallet(address1: String, address2: String, city: String, state: String, zip: String, ssn: String) -> Void
+    func registerWallet(address1: String, address2: String, city: String, state: String, zip: String, ssn: String, dob: String) -> Void
 }
 
 
@@ -47,6 +47,7 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
         let linkBankGesture = UITapGestureRecognizer(target: self, action: #selector(self.presentPlaidLinkWithSharedConfiguration))
         self.linkBankView.isUserInteractionEnabled = true
         self.linkBankView.addGestureRecognizer(linkBankGesture)
+        
 
     }
     
@@ -110,8 +111,8 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
         // Add the KYC View to the frame with an animation
         self.addActivity()
         let kycView = loadKycViewFromNib()
-        kycView.frame = CGRect(x: 0, y: self.innerView.frame.height, width: self.innerView.frame.width, height: 430)
-        self.innerView.frame = CGRect(x: self.innerView.frame.origin.x, y: self.innerView.frame.origin.y, width: self.innerView.frame.width, height: self.innerView.frame.height + 430)
+        kycView.frame = CGRect(x: 0, y: self.innerView.frame.height, width: self.innerView.frame.width, height: 490)
+        self.innerView.frame = CGRect(x: self.innerView.frame.origin.x, y: self.innerView.frame.origin.y, width: self.innerView.frame.width, height: self.innerView.frame.height + 500)
 //        self.kycView.removeFromSuperview()
         self.innerView.addSubview(kycView)
         self.removeActivity()
@@ -129,9 +130,9 @@ class KYCViewController: UIViewController, PLKPlaidLinkViewDelegate, RequestProt
     //////////////////////////////////////////////////
     /// Delegate functions
     //////////////////////////////////////////////////
-    func registerWallet(address1: String, address2: String, city: String, state: String, zip: String, ssn: String) {
+    func registerWallet(address1: String, address2: String, city: String, state: String, zip: String, ssn: String, dob: String) {
         self.addActivity()
-        user.registerWallet(address1: address1, address2: address2, city: city, state: state, zip: zip, ssn: ssn) { (json, code, error) in
+        user.registerWallet(address1: address1, address2: address2, city: city, state: state, zip: zip, ssn: ssn, dob: dob) { (json, code, error) in
             self.removeActivity()
             guard code == 200 else {
                 self.bankLinkError()
