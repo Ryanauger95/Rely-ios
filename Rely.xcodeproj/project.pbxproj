@@ -76,7 +76,6 @@
 		0CC4D6DB231812EE00497D21 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D6A9231812EE00497D21 /* SettingsViewController.swift */; };
 		0CC4D6DC231812EE00497D21 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC4D6AA231812EE00497D21 /* LaunchScreen.storyboard */; };
 		0CC4D6DD231812EE00497D21 /* Messages.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC4D6AC231812EE00497D21 /* Messages.storyboard */; };
-		0CC4D6DE231812EE00497D21 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D6AD231812EE00497D21 /* FeedbackViewController.swift */; };
 		0CC4D6DF231812EE00497D21 /* KYC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CC4D6AF231812EE00497D21 /* KYC.xib */; };
 		0CC4D6E0231812EE00497D21 /* KYC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CC4D6B0231812EE00497D21 /* KYC.storyboard */; };
 		0CC4D6E1231812EE00497D21 /* KYCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CC4D6B1231812EE00497D21 /* KYCViewController.swift */; };
@@ -210,7 +209,6 @@
 		0CC4D6A9231812EE00497D21 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0CC4D6AA231812EE00497D21 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0CC4D6AC231812EE00497D21 /* Messages.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Messages.storyboard; sourceTree = "<group>"; };
-		0CC4D6AD231812EE00497D21 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		0CC4D6AF231812EE00497D21 /* KYC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KYC.xib; sourceTree = "<group>"; };
 		0CC4D6B0231812EE00497D21 /* KYC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = KYC.storyboard; sourceTree = "<group>"; };
 		0CC4D6B1231812EE00497D21 /* KYCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KYCViewController.swift; sourceTree = "<group>"; };
@@ -458,7 +456,6 @@
 			isa = PBXGroup;
 			children = (
 				0CC4D6AC231812EE00497D21 /* Messages.storyboard */,
-				0CC4D6AD231812EE00497D21 /* FeedbackViewController.swift */,
 			);
 			path = messages;
 			sourceTree = "<group>";
@@ -915,7 +912,6 @@
 				0CC4D689231812DF00497D21 /* UITextView+Padding.swift in Sources */,
 				0CC4D67C231812DF00497D21 /* UIView+Gradient.swift in Sources */,
 				0CC4D691231812DF00497D21 /* UIView+shadow.swift in Sources */,
-				0CC4D6DE231812EE00497D21 /* FeedbackViewController.swift in Sources */,
 				0CC4D6FD231812EE00497D21 /* SignUpViewController.swift in Sources */,
 				0CC4D6D7231812EE00497D21 /* UnderConstructionViewController.swift in Sources */,
 				0CC4D69E231812E500497D21 /* NotificationModel.swift in Sources */,
